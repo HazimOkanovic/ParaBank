@@ -9,19 +9,17 @@ namespace ParaBankPractice.Tests
     {
         private readonly LogInPage logIn;
         private readonly HomePage homePage;
-        private readonly RegisterPage registerPage;
-        
+
         public LogInTests(Enums.Enums.WebBrowser webBrowser) : base(webBrowser)
         {
             logIn = new LogInPage(driver, webBrowser);
             homePage = new HomePage(driver, webBrowser);
-            registerPage = new RegisterPage(driver, webBrowser);
         }
 
         [OneTimeSetUp]
         public void Setup()
         {
-            homePage.GoToUrl(ConfigHelper.WEB_URL);
+            logIn.GoToUrl(ConfigHelper.WEB_URL);
         }
         
         [Test, Order(1)]
