@@ -42,5 +42,7 @@ namespace ParaBankPractice
         public const string PhoneNumber = "9382743987";
         public const string Ssn = "928732917";
         public const string AccountCreatedMessage = "Your account was created successfully. You are now logged in.";
+        public const string NewAccountMessage = "Open New Account";
+        public const string BankAccountCreatedMessage = "Congratulations, your account is now open.";
     }
 }

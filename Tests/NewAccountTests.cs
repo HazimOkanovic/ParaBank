@@ -45,7 +45,8 @@ namespace ParaBankPractice.Tests
                 .EnterState(Constants.State)
                 .EnterZipCode(Constants.ZipCode)
                 .EnterPhoneNumber(Constants.PhoneNumber)
-                .EnterUserName(Constants.ValidUserName)
+                .EnterSsn(Constants.Ssn)
+                .EnterUserName(Constants.RandomString(7))
                 .EnterPassword(Constants.ValidPassword)
                 .EnterConfirmPassword(Constants.ValidPassword)
                 .ClickRegisterButton();
@@ -59,7 +60,38 @@ namespace ParaBankPractice.Tests
             homePage
                 .ClickNewAccountButton();
             
-            Assert.That(newAccountPage.GetTitle(), Is.EqualTo("Open New Account"));
+            Assert.That(newAccountPage.GetTitle(), Is.EqualTo(Constants.NewAccountMessage));
+        }
+
+        [Test, Order(4)]
+        public void OpenNewAccountTest()
+        {
+            ThreadSleepHelper.Sleep(250);
+            
+            newAccountPage
+                .ClickOpenNewAccountButton();
+            
+            Assert.That(newAccountPage.GetSuccessMessage(), Is.EqualTo(Constants.BankAccountCreatedMessage));
+        }
+        
+        [Test, Order(5)]
+        public void GoToNewAccountAgainTest()
+        {
+            homePage
+                .ClickNewAccountButton();
+            
+            Assert.That(newAccountPage.GetTitle(), Is.EqualTo(Constants.NewAccountMessage));
+        }
+        
+        [Test, Order(6)]
+        public void OpenNewAccountWithDropdownOptionsTest()
+        {
+            newAccountPage
+                .ChooseSavingAccountType()
+                .ChooseSecondExistingAccount()
+                .ClickOpenNewAccountButton();
+            
+            Assert.That(newAccountPage.GetSuccessMessage(), Is.EqualTo(Constants.BankAccountCreatedMessage));
         }
     }
 }
