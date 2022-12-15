@@ -25,7 +25,7 @@ namespace ParaBankPractice.Pages
         private readonly By zipCodeInputError = By.Id("customer.address.zipCode.errors");
         private readonly By phoneNumberInputError = By.Id("customer.phoneNumber.errors");
         private readonly By ssnInputError = By.Id("customer.ssn.errors");
-        private readonly By usernameInputError = By.Id("customer.username.errors");
+        private readonly By userNameInputError = By.Id("customer.username.errors");
         private readonly By passwordInputError = By.Id("customer.password.errors");
         private readonly By confirmPasswordInputError = By.Id("repeatedPassword.errors");
         
@@ -102,6 +102,67 @@ namespace ParaBankPractice.Pages
         {
             WaitElementVisibleAndGet(confirmPasswordInput).SendKeys(confirmPassword);
             return this;
+        }
+
+        public string GetFirstNameError()
+        {
+            return WaitElementVisibleAndGet(firstNameInputError).Text;
+        }
+        
+        public string GetLastNameError()
+        {
+            return WaitElementVisibleAndGet(lastNameInputError).Text;
+        }
+        
+        public string GetAddressError()
+        {
+            return WaitElementVisibleAndGet(addressInputError).Text;
+        }
+        
+        public string GetCityError()
+        {
+            return WaitElementVisibleAndGet(cityInputError).Text;
+        }
+        
+        public string GetStateError()
+        {
+            return WaitElementVisibleAndGet(stateInputError).Text;
+        }
+        
+        public string GetZipCodeError()
+        {
+            return WaitElementVisibleAndGet(zipCodeInputError).Text;
+        }
+        
+        public string GetPhoneNumberError()
+        {
+            return WaitElementVisibleAndGet(phoneNumberInputError).Text;
+        }
+        
+        public string GetSsnError()
+        {
+            return WaitElementVisibleAndGet(ssnInputError).Text;
+        }
+        
+        public string GetUserNameError()
+        {
+            return WaitElementVisibleAndGet(userNameInputError).Text;
+        }
+        
+        public string GetPasswordError()
+        {
+            return WaitElementVisibleAndGet(passwordInputError).Text;
+        }
+        
+        public string GetConfirmPasswordError()
+        {
+            return WaitElementVisibleAndGet(confirmPasswordInputError).Text;
+        }
+
+        public HomePage ClickRegisterButton()
+        {
+            WaitElementVisibleAndGet(registerButton).Click();
+            return new HomePage(driver, webBrowser);
         }
     }
 }
