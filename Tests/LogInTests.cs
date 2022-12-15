@@ -23,30 +23,16 @@ namespace ParaBankPractice.Tests
         {
             homePage.GoToUrl(ConfigHelper.WEB_URL);
         }
-        /*
-        [Test, Order(1)]
-        public void SuccessfulAccountCreationTest()
-        {
-            logIn
-                .ClickRegisterButton();
-            Assert.That(registerPage.checkSignUpTitle(), Is.EqualTo("Signing up is easy!"));
-        }
-
-        [Test, Order(2)]
-        public void CreateAccountTest()
-        {
-            
-        }*/
         
         [Test, Order(1)]
         public void SuccessfulLoginTest()
         {
             logIn
-                .EnterUserName("HazimOkanovic")
-                .EnterPassword("NokiaN95")
+                .EnterUserName(Constants.ValidUserName)
+                .EnterPassword(Constants.ValidPassword)
                 .ClickLogInButton();
             
-            Assert.That(homePage.GetSuccessMessage(), Is.EqualTo("Accounts Overview"));
+            Assert.That(homePage.GetSuccessLoginMessage(), Is.EqualTo(Constants.LogInMessage));
         }
         
         [Test, Order(2)]
@@ -54,27 +40,27 @@ namespace ParaBankPractice.Tests
         {
             homePage.ClickLogOutButton();
             
-            Assert.That(logIn.GetMessageForLogin(), Is.EqualTo("Customer Login"));
+            Assert.That(logIn.GetMessageForLogin(), Is.EqualTo(Constants.LogOutMessage));
         }
         
         [Test, Order(3)]
         public void LogInWithoutPassword()
         {
             logIn
-                .EnterUserName("HazimOkanovic")
+                .EnterUserName(Constants.ValidUserName)
                 .ClickLogInButton();
             
-            Assert.That(logIn.GetErrorMessage(), Is.EqualTo("Please enter a username and password."));
+            Assert.That(logIn.GetErrorMessage(), Is.EqualTo(Constants.EnterUserNameAndPasswordError));
         }
         
         [Test, Order(4)]
         public void LogInWithoutUsername()
         {
             logIn
-                .EnterPassword("NokiaN95")
+                .EnterPassword(Constants.ValidPassword)
                 .ClickLogInButton();
             
-            Assert.That(logIn.GetErrorMessage(), Is.EqualTo("Please enter a username and password."));
+            Assert.That(logIn.GetErrorMessage(), Is.EqualTo(Constants.EnterUserNameAndPasswordError));
         }
 
         [Test, Order(5)]
@@ -85,18 +71,18 @@ namespace ParaBankPractice.Tests
                 .EnterPassword("NokiaN95")
                 .ClickLogInButton();
             
-            Assert.That(logIn.GetErrorMessage(), Is.EqualTo("An internal error has occurred and has been logged."));
+            Assert.That(logIn.GetErrorMessage(), Is.EqualTo(Constants.InternalError));
         }
         
         [Test, Order(6)]
         public void IncorrectPassword()
         {
             logIn
-                .EnterUserName("HazimOkanovic")
-                .EnterPassword("SomethingSomething")
+                .EnterUserName(Constants.ValidPassword)
+                .EnterPassword(Constants.WrongPassword)
                 .ClickLogInButton();
             
-            Assert.That(logIn.GetErrorMessage(), Is.EqualTo("An internal error has occurred and has been logged."));
+            Assert.That(logIn.GetErrorMessage(), Is.EqualTo(Constants.InternalError));
         }
     }
 }

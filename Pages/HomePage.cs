@@ -13,14 +13,20 @@ namespace ParaBankPractice.Pages
         private readonly By RequestLoanButton = By.XPath("//ul//li//a[contains(text(), 'Request Loan')]");
         private readonly By LogOutButton = By.XPath("//ul//li//a[contains(text(), 'Log Out')]");
         private readonly By SuccessMessageLogin = By.XPath("//div//h1[@class = 'title']");
+        private readonly By SuccessMessageRegistration = By.XPath("//div//p[contains(text(), 'account')]");
 
         public HomePage(IWebDriver driver, Enums.Enums.WebBrowser browser) : base(driver, browser)
         {
         }
 
-        public string GetSuccessMessage()
+        public string GetSuccessLoginMessage()
         {
             return WaitElementVisibleAndGet(SuccessMessageLogin).Text;
+        }
+        
+        public string GetSuccessRegistrationMessage()
+        {
+            return WaitElementVisibleAndGet(SuccessMessageRegistration).Text;
         }
 
         public NewAccountPage ClickNewAccountButton()
