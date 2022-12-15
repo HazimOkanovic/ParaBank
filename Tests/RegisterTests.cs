@@ -20,11 +20,11 @@ namespace ParaBankPractice.Tests
         [OneTimeSetUp]
         public void Setup()
         {
-            homePage.GoToUrl(ConfigHelper.WEB_URL);
+            logInPage.GoToUrl(ConfigHelper.WEB_URL);
         }
         
         [Test, Order(1)]
-        public void SuccessfulAccountCreationTest()
+        public void GoToRegisterPageTest()
         {
             logInPage
                 .ClickRegisterButton();
