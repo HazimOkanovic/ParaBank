@@ -23,7 +23,6 @@ namespace ParaBankPractice.Pages
         private readonly By cityInputError = By.Id("customer.address.city.errors");
         private readonly By stateInputError = By.Id("customer.address.state.errors");
         private readonly By zipCodeInputError = By.Id("customer.address.zipCode.errors");
-        private readonly By phoneNumberInputError = By.Id("customer.phoneNumber.errors");
         private readonly By ssnInputError = By.Id("customer.ssn.errors");
         private readonly By userNameInputError = By.Id("customer.username.errors");
         private readonly By passwordInputError = By.Id("customer.password.errors");
@@ -133,12 +132,7 @@ namespace ParaBankPractice.Pages
         {
             return WaitElementVisibleAndGet(zipCodeInputError).Text;
         }
-        
-        public string GetPhoneNumberError()
-        {
-            return WaitElementVisibleAndGet(phoneNumberInputError).Text;
-        }
-        
+
         public string GetSsnError()
         {
             return WaitElementVisibleAndGet(ssnInputError).Text;
