@@ -29,7 +29,7 @@ namespace ParaBankPractice.Tests
             logInPage
                 .ClickRegisterButton();
             
-            Assert.That(registerPage.checkSignUpTitle(), Is.EqualTo("Signing up is easy!"));
+            Assert.That(registerPage.checkSignUpTitle(), Is.EqualTo(Constants.SignUpTitle));
         }
 
         [Test, Order(2)]
@@ -38,122 +38,122 @@ namespace ParaBankPractice.Tests
             registerPage
                 .ClickRegisterButton();
             
-            Assert.That(registerPage.GetFirstNameError(), Is.EqualTo("First name is required."));
-            Assert.That(registerPage.GetLastNameError(), Is.EqualTo("Last name is required."));
-            Assert.That(registerPage.GetAddressError(), Is.EqualTo("Address is required."));
-            Assert.That(registerPage.GetCityError(), Is.EqualTo("City is required."));
-            Assert.That(registerPage.GetStateError(), Is.EqualTo("State is required."));
-            Assert.That(registerPage.GetZipCodeError(), Is.EqualTo("Zip Code is required."));
-            Assert.That(registerPage.GetSsnError(), Is.EqualTo("Social Security Number is required."));
-            Assert.That(registerPage.GetUserNameError(), Is.EqualTo("Username is required."));
-            Assert.That(registerPage.GetPasswordError(), Is.EqualTo("Password is required."));
-            Assert.That(registerPage.GetConfirmPasswordError(), Is.EqualTo("Password confirmation is required."));
+            Assert.That(registerPage.GetFirstNameError(), Is.EqualTo(Constants.FirstNameError));
+            Assert.That(registerPage.GetLastNameError(), Is.EqualTo(Constants.LastNameError));
+            Assert.That(registerPage.GetAddressError(), Is.EqualTo(Constants.AddressError));
+            Assert.That(registerPage.GetCityError(), Is.EqualTo(Constants.CityError));
+            Assert.That(registerPage.GetStateError(), Is.EqualTo(Constants.StateError));
+            Assert.That(registerPage.GetZipCodeError(), Is.EqualTo(Constants.ZipCodeError));
+            Assert.That(registerPage.GetSsnError(), Is.EqualTo(Constants.SsnError));
+            Assert.That(registerPage.GetUserNameError(), Is.EqualTo(Constants.UserNameError));
+            Assert.That(registerPage.GetPasswordError(), Is.EqualTo(Constants.PasswordError));
+            Assert.That(registerPage.GetConfirmPasswordError(), Is.EqualTo(Constants.PasswordConfirmError));
         }
         
         [Test, Order(3)]
         public void OneRequiredFieldEnteredTest()
         {
             registerPage
-                .EnterFirstName("Hazim")
+                .EnterFirstName(Constants.FirstName)
                 .ClickRegisterButton();
             
-            Assert.That(registerPage.GetLastNameError(), Is.EqualTo("Last name is required."));
-            Assert.That(registerPage.GetAddressError(), Is.EqualTo("Address is required."));
-            Assert.That(registerPage.GetCityError(), Is.EqualTo("City is required."));
-            Assert.That(registerPage.GetStateError(), Is.EqualTo("State is required."));
-            Assert.That(registerPage.GetZipCodeError(), Is.EqualTo("Zip Code is required."));
-            Assert.That(registerPage.GetSsnError(), Is.EqualTo("Social Security Number is required."));
-            Assert.That(registerPage.GetUserNameError(), Is.EqualTo("Username is required."));
-            Assert.That(registerPage.GetPasswordError(), Is.EqualTo("Password is required."));
-            Assert.That(registerPage.GetConfirmPasswordError(), Is.EqualTo("Password confirmation is required."));
+            Assert.That(registerPage.GetLastNameError(), Is.EqualTo(Constants.LastNameError));
+            Assert.That(registerPage.GetAddressError(), Is.EqualTo(Constants.AddressError));
+            Assert.That(registerPage.GetCityError(), Is.EqualTo(Constants.CityError));
+            Assert.That(registerPage.GetStateError(), Is.EqualTo(Constants.StateError));
+            Assert.That(registerPage.GetZipCodeError(), Is.EqualTo(Constants.ZipCodeError));
+            Assert.That(registerPage.GetSsnError(), Is.EqualTo(Constants.SsnError));
+            Assert.That(registerPage.GetUserNameError(), Is.EqualTo(Constants.UserNameError));
+            Assert.That(registerPage.GetPasswordError(), Is.EqualTo(Constants.PasswordError));
+            Assert.That(registerPage.GetConfirmPasswordError(), Is.EqualTo(Constants.PasswordConfirmError));
         }
         
         [Test, Order(4)]
         public void TwoRequiredFieldsEnteredTest()
         {
             registerPage
-                .EnterLastName("Okanovic")
+                .EnterLastName(Constants.LastName)
                 .ClickRegisterButton();
             
-            Assert.That(registerPage.GetAddressError(), Is.EqualTo("Address is required."));
-            Assert.That(registerPage.GetCityError(), Is.EqualTo("City is required."));
-            Assert.That(registerPage.GetStateError(), Is.EqualTo("State is required."));
-            Assert.That(registerPage.GetZipCodeError(), Is.EqualTo("Zip Code is required."));
-            Assert.That(registerPage.GetSsnError(), Is.EqualTo("Social Security Number is required."));
-            Assert.That(registerPage.GetUserNameError(), Is.EqualTo("Username is required."));
-            Assert.That(registerPage.GetPasswordError(), Is.EqualTo("Password is required."));
-            Assert.That(registerPage.GetConfirmPasswordError(), Is.EqualTo("Password confirmation is required."));
+            Assert.That(registerPage.GetAddressError(), Is.EqualTo(Constants.AddressError));
+            Assert.That(registerPage.GetCityError(), Is.EqualTo(Constants.CityError));
+            Assert.That(registerPage.GetStateError(), Is.EqualTo(Constants.StateError));
+            Assert.That(registerPage.GetZipCodeError(), Is.EqualTo(Constants.ZipCodeError));
+            Assert.That(registerPage.GetSsnError(), Is.EqualTo(Constants.SsnError));
+            Assert.That(registerPage.GetUserNameError(), Is.EqualTo(Constants.UserNameError));
+            Assert.That(registerPage.GetPasswordError(), Is.EqualTo(Constants.PasswordError));
+            Assert.That(registerPage.GetConfirmPasswordError(), Is.EqualTo(Constants.PasswordConfirmError));
         }
         
         [Test, Order(5)]
         public void ThreeRequiredFieldsEnteredTest()
         {
             registerPage
-                .EnterAddress("Sahmani")
+                .EnterAddress(Constants.Address)
                 .ClickRegisterButton();
             
-            Assert.That(registerPage.GetCityError(), Is.EqualTo("City is required."));
-            Assert.That(registerPage.GetStateError(), Is.EqualTo("State is required."));
-            Assert.That(registerPage.GetZipCodeError(), Is.EqualTo("Zip Code is required."));
-            Assert.That(registerPage.GetSsnError(), Is.EqualTo("Social Security Number is required."));
-            Assert.That(registerPage.GetUserNameError(), Is.EqualTo("Username is required."));
-            Assert.That(registerPage.GetPasswordError(), Is.EqualTo("Password is required."));
-            Assert.That(registerPage.GetConfirmPasswordError(), Is.EqualTo("Password confirmation is required."));
+            Assert.That(registerPage.GetCityError(), Is.EqualTo(Constants.CityError));
+            Assert.That(registerPage.GetStateError(), Is.EqualTo(Constants.StateError));
+            Assert.That(registerPage.GetZipCodeError(), Is.EqualTo(Constants.ZipCodeError));
+            Assert.That(registerPage.GetSsnError(), Is.EqualTo(Constants.SsnError));
+            Assert.That(registerPage.GetUserNameError(), Is.EqualTo(Constants.UserNameError));
+            Assert.That(registerPage.GetPasswordError(), Is.EqualTo(Constants.PasswordError));
+            Assert.That(registerPage.GetConfirmPasswordError(), Is.EqualTo(Constants.PasswordConfirmError));
         }
         
         [Test, Order(6)]
         public void FourRequiredFieldsEnteredTest()
         {
             registerPage
-                .EnterCity("Zepce")
+                .EnterCity(Constants.City)
                 .ClickRegisterButton();
             
-            Assert.That(registerPage.GetStateError(), Is.EqualTo("State is required."));
-            Assert.That(registerPage.GetZipCodeError(), Is.EqualTo("Zip Code is required."));
-            Assert.That(registerPage.GetSsnError(), Is.EqualTo("Social Security Number is required."));
-            Assert.That(registerPage.GetUserNameError(), Is.EqualTo("Username is required."));
-            Assert.That(registerPage.GetPasswordError(), Is.EqualTo("Password is required."));
-            Assert.That(registerPage.GetConfirmPasswordError(), Is.EqualTo("Password confirmation is required."));
+            Assert.That(registerPage.GetStateError(), Is.EqualTo(Constants.StateError));
+            Assert.That(registerPage.GetZipCodeError(), Is.EqualTo(Constants.ZipCodeError));
+            Assert.That(registerPage.GetSsnError(), Is.EqualTo(Constants.SsnError));
+            Assert.That(registerPage.GetUserNameError(), Is.EqualTo(Constants.UserNameError));
+            Assert.That(registerPage.GetPasswordError(), Is.EqualTo(Constants.PasswordError));
+            Assert.That(registerPage.GetConfirmPasswordError(), Is.EqualTo(Constants.PasswordConfirmError));
         }
         
         [Test, Order(7)]
         public void FiveRequiredFieldsEnteredTest()
         {
             registerPage
-                .EnterState("BiH")
+                .EnterState(Constants.State)
                 .ClickRegisterButton();
             
-            Assert.That(registerPage.GetZipCodeError(), Is.EqualTo("Zip Code is required."));
-            Assert.That(registerPage.GetSsnError(), Is.EqualTo("Social Security Number is required."));
-            Assert.That(registerPage.GetUserNameError(), Is.EqualTo("Username is required."));
-            Assert.That(registerPage.GetPasswordError(), Is.EqualTo("Password is required."));
-            Assert.That(registerPage.GetConfirmPasswordError(), Is.EqualTo("Password confirmation is required."));
+            Assert.That(registerPage.GetZipCodeError(), Is.EqualTo(Constants.ZipCodeError));
+            Assert.That(registerPage.GetSsnError(), Is.EqualTo(Constants.SsnError));
+            Assert.That(registerPage.GetUserNameError(), Is.EqualTo(Constants.UserNameError));
+            Assert.That(registerPage.GetPasswordError(), Is.EqualTo(Constants.PasswordError));
+            Assert.That(registerPage.GetConfirmPasswordError(), Is.EqualTo(Constants.PasswordConfirmError));
         }
         
         [Test, Order(8)]
         public void SixRequiredFieldsEnteredTest()
         {
             registerPage
-                .EnterZipCode("63746")
-                .EnterPhoneNumber("6374626")
+                .EnterZipCode(Constants.ZipCode)
+                .EnterPhoneNumber(Constants.PhoneNumber)
                 .ClickRegisterButton();
             
-            Assert.That(registerPage.GetSsnError(), Is.EqualTo("Social Security Number is required."));
-            Assert.That(registerPage.GetUserNameError(), Is.EqualTo("Username is required."));
-            Assert.That(registerPage.GetPasswordError(), Is.EqualTo("Password is required."));
-            Assert.That(registerPage.GetConfirmPasswordError(), Is.EqualTo("Password confirmation is required."));
+            Assert.That(registerPage.GetSsnError(), Is.EqualTo(Constants.SsnError));
+            Assert.That(registerPage.GetUserNameError(), Is.EqualTo(Constants.UserNameError));
+            Assert.That(registerPage.GetPasswordError(), Is.EqualTo(Constants.PasswordError));
+            Assert.That(registerPage.GetConfirmPasswordError(), Is.EqualTo(Constants.PasswordConfirmError));
         }
         
         [Test, Order(9)]
         public void SevenRequiredFieldsEnteredTest()
         {
             registerPage
-                .EnterSsn("88866454654")
+                .EnterSsn(Constants.Ssn)
                 .ClickRegisterButton();
             
-            Assert.That(registerPage.GetUserNameError(), Is.EqualTo("Username is required."));
-            Assert.That(registerPage.GetPasswordError(), Is.EqualTo("Password is required."));
-            Assert.That(registerPage.GetConfirmPasswordError(), Is.EqualTo("Password confirmation is required."));
+            Assert.That(registerPage.GetUserNameError(), Is.EqualTo(Constants.UserNameError));
+            Assert.That(registerPage.GetPasswordError(), Is.EqualTo(Constants.PasswordError));
+            Assert.That(registerPage.GetConfirmPasswordError(), Is.EqualTo(Constants.PasswordConfirmError));
         }
         
         [Test, Order(10)]
@@ -163,40 +163,40 @@ namespace ParaBankPractice.Tests
                 .EnterUserName(Constants.RandomString(5))
                 .ClickRegisterButton();
             
-            Assert.That(registerPage.GetPasswordError(), Is.EqualTo("Password is required."));
-            Assert.That(registerPage.GetConfirmPasswordError(), Is.EqualTo("Password confirmation is required."));
+            Assert.That(registerPage.GetPasswordError(), Is.EqualTo(Constants.PasswordError));
+            Assert.That(registerPage.GetConfirmPasswordError(), Is.EqualTo(Constants.PasswordConfirmError));
         }
         
         [Test, Order(11)]
         public void NineRequiredFieldsEnteredTest()
         {
             registerPage
-                .EnterPassword("Password")
+                .EnterPassword(Constants.ValidPassword)
                 .ClickRegisterButton();
             
-            Assert.That(registerPage.GetConfirmPasswordError(), Is.EqualTo("Password confirmation is required."));
+            Assert.That(registerPage.GetConfirmPasswordError(), Is.EqualTo(Constants.PasswordConfirmError));
         }
         
         [Test, Order(12)]
         public void PasswordsDontMatchTest()
         {
             registerPage
-                .EnterPassword("Something")
-                .EnterConfirmPassword("SomethingElse")
+                .EnterPassword(Constants.ValidPassword)
+                .EnterConfirmPassword(Constants.WrongPassword)
                 .ClickRegisterButton();
             
-            Assert.That(registerPage.GetConfirmPasswordError(), Is.EqualTo("Passwords did not match."));
+            Assert.That(registerPage.GetConfirmPasswordError(), Is.EqualTo(Constants.PasswordsDontMatchError));
         }
         
         [Test, Order(13)]
         public void SuccessfulRegistrationTest()
         {
             registerPage
-                .EnterPassword("Password")
-                .EnterConfirmPassword("Password")
+                .EnterPassword(Constants.ValidPassword)
+                .EnterConfirmPassword(Constants.ValidPassword)
                 .ClickRegisterButton();
             
-            Assert.That(homePage.GetSuccessRegistrationMessage(), Is.EqualTo("Your account was created successfully. You are now logged in."));
+            Assert.That(homePage.GetSuccessRegistrationMessage(), Is.EqualTo(Constants.AccountCreatedMessage));
         }
     }
 }
