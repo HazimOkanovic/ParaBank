@@ -12,7 +12,7 @@ namespace ParaBankPractice.Pages
         private readonly By UpdateInfoButton = By.XPath("//ul//li//a[contains(text(), 'Update Info')]");
         private readonly By RequestLoanButton = By.XPath("//ul//li//a[contains(text(), 'Request Loan')]");
         private readonly By LogOutButton = By.XPath("//ul//li//a[contains(text(), 'Log Out')]");
-        private readonly By SuccessMessageField = By.XPath("//div//p[contains(text(), 'successfully')]");
+        private readonly By SuccessMessageLogin = By.XPath("//div//h1[@class = 'title']");
 
         public HomePage(IWebDriver driver, Enums.Enums.WebBrowser browser) : base(driver, browser)
         {
@@ -20,7 +20,7 @@ namespace ParaBankPractice.Pages
 
         public string GetSuccessMessage()
         {
-            return WaitElementVisibleAndGet(SuccessMessageField).Text;
+            return WaitElementVisibleAndGet(SuccessMessageLogin).Text;
         }
 
         public NewAccountPage ClickNewAccountButton()

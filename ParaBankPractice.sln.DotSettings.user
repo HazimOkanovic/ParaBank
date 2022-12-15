@@ -1,0 +1,19 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=060c5b51_002D1f6d_002D421e_002D83c1_002De7f897b58897/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Session #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;And&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::4805DDAE-19D3-4C5D-B672-B35B7E4B9747::.NETFramework,Version=v4.8::ParaBankPractice.Tests.LogInTests&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+    &lt;Project Location="C:\Users\hazim\Documents\ParaBankPractice" Presentation="&amp;lt;ParaBankPractice&amp;gt;" /&gt;&#xD;
+    &lt;Namespace&gt;ParaBankPractice.Tests&lt;/Namespace&gt;&#xD;
+  &lt;/And&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=420b7831_002D9e30_002D4fc7_002D88b6_002Dc5c35d9acf66/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Session" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;And&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::4805DDAE-19D3-4C5D-B672-B35B7E4B9747::.NETFramework,Version=v4.8::ParaBankPractice.Tests.LogInTests&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+    &lt;Project Location="C:\Users\hazim\Documents\ParaBankPractice" Presentation="&amp;lt;ParaBankPractice&amp;gt;" /&gt;&#xD;
+    &lt;Namespace&gt;ParaBankPractice.Tests&lt;/Namespace&gt;&#xD;
+  &lt;/And&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
