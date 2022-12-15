@@ -9,34 +9,47 @@ namespace ParaBankPractice.Pages
         private readonly By logInButton = By.XPath("//div//input[@type='submit']");
         private readonly By registerButton = By.XPath("//div//p//a[contains(text(), 'Register')]");
         private readonly By forgotInfoButton = By.XPath("//div//p//a[@href='lookup.htm']");
+        private readonly By messageForLogin = By.XPath("//div//h2[contains(text(), 'Login')]");
+        private readonly By errorMessage = By.XPath("//div//p[@class='error']");
+        
         public LogInPage(IWebDriver driver, Enums.Enums.WebBrowser webBrowser) : base(driver, webBrowser)
         {
         }
 
-        public LogInPage enterUserName(string userName)
+        public string GetMessageForLogin()
+        {
+            return WaitElementVisibleAndGet(messageForLogin).Text;
+        }
+        
+        public string GetErrorMessage()
+        {
+            return WaitElementVisibleAndGet(errorMessage).Text;
+        }
+        
+        public LogInPage EnterUserName(string userName)
         {
             SendKeys(usernameField, userName);
             return this;
         }
         
-        public LogInPage enterPassword(string password)
+        public LogInPage EnterPassword(string password)
         {
             SendKeys(passwordField, password);
             return this;
         }
 
-        public LogInPage clickLogInButton()
+        public HomePage ClickLogInButton()
         {
             WaitElementExistsAndGet(logInButton).Click();
-            return this;
+            return new HomePage(driver, webBrowser);
         }
 
-        public LogInPage clickForgotLogInInfo()
+        public LogInPage ClickForgotLogInInfo()
         {
             WaitElementExistsAndGet(forgotInfoButton).Click();
             return this;
         }
-        public RegisterPage clickRegisterButton()
+        public RegisterPage ClickRegisterButton()
         {
             WaitElementExistsAndGet(registerButton).Click();
             return new RegisterPage(driver, webBrowser);
