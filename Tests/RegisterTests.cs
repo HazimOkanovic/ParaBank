@@ -24,7 +24,7 @@ namespace ParaBankPractice.Tests
         }
         
         [Test, Order(1)]
-        public void SuccessfulAccountCreationTest()
+        public void GoToRegisterPageTest()
         {
             logInPage
                 .ClickRegisterButton();
