@@ -32,7 +32,7 @@ namespace ParaBankPractice.Tests
                 .EnterPassword("NokiaN95")
                 .ClickLogInButton();
             
-            Assert.That(homePage.GetSuccessMessage(), Is.EqualTo("Accounts Overview"));
+            Assert.That(homePage.GetSuccessLoginMessage(), Is.EqualTo("Accounts Overview"));
         }
         
         [Test, Order(2)]
