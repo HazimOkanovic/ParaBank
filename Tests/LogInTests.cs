@@ -49,12 +49,54 @@ namespace ParaBankPractice.Tests
             Assert.That(homePage.GetSuccessMessage(), Is.EqualTo("Accounts Overview"));
         }
         
-        [Test, Order(4)]
+        [Test, Order(2)]
         public void LogOutTest()
         {
             homePage.ClickLogOutButton();
             
             Assert.That(logIn.GetMessageForLogin(), Is.EqualTo("Customer Login"));
+        }
+        
+        [Test, Order(3)]
+        public void LogInWithoutPassword()
+        {
+            logIn
+                .EnterUserName("HazimOkanovic")
+                .ClickLogInButton();
+            
+            Assert.That(logIn.GetErrorMessage(), Is.EqualTo("Please enter a username and password."));
+        }
+        
+        [Test, Order(4)]
+        public void LogInWithoutUsername()
+        {
+            logIn
+                .EnterPassword("NokiaN95")
+                .ClickLogInButton();
+            
+            Assert.That(logIn.GetErrorMessage(), Is.EqualTo("Please enter a username and password."));
+        }
+
+        [Test, Order(5)]
+        public void IncorrectUsername()
+        {
+            logIn
+                .EnterUserName("HazimHazimHazim")
+                .EnterPassword("NokiaN95")
+                .ClickLogInButton();
+            
+            Assert.That(logIn.GetErrorMessage(), Is.EqualTo("An internal error has occurred and has been logged."));
+        }
+        
+        [Test, Order(6)]
+        public void IncorrectPassword()
+        {
+            logIn
+                .EnterUserName("HazimOkanovic")
+                .EnterPassword("SomethingSomething")
+                .ClickLogInButton();
+            
+            Assert.That(logIn.GetErrorMessage(), Is.EqualTo("An internal error has occurred and has been logged."));
         }
     }
 }
