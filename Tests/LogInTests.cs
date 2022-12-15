@@ -23,20 +23,6 @@ namespace ParaBankPractice.Tests
         {
             homePage.GoToUrl(ConfigHelper.WEB_URL);
         }
-        /*
-        [Test, Order(1)]
-        public void SuccessfulAccountCreationTest()
-        {
-            logIn
-                .ClickRegisterButton();
-            Assert.That(registerPage.checkSignUpTitle(), Is.EqualTo("Signing up is easy!"));
-        }
-
-        [Test, Order(2)]
-        public void CreateAccountTest()
-        {
-            
-        }*/
         
         [Test, Order(1)]
         public void SuccessfulLoginTest()

@@ -17,6 +17,17 @@ namespace ParaBankPractice.Pages
         private readonly By passwordInput = By.Id("customer.password");
         private readonly By confirmPasswordInput = By.Id("repeatedPassword");
         private readonly By registerButton = By.XPath("//td//input[@type = 'submit']");
+        private readonly By firstNameInputError = By.Id("customer.firstName.errors");
+        private readonly By lastNameInputError = By.Id("customer.lastName.errors");
+        private readonly By addressInputError = By.Id("customer.address.street.errors");
+        private readonly By cityInputError = By.Id("customer.address.city.errors");
+        private readonly By stateInputError = By.Id("customer.address.state.errors");
+        private readonly By zipCodeInputError = By.Id("customer.address.zipCode.errors");
+        private readonly By phoneNumberInputError = By.Id("customer.phoneNumber.errors");
+        private readonly By ssnInputError = By.Id("customer.ssn.errors");
+        private readonly By usernameInputError = By.Id("customer.username.errors");
+        private readonly By passwordInputError = By.Id("customer.password.errors");
+        private readonly By confirmPasswordInputError = By.Id("repeatedPassword.errors");
         
         public RegisterPage(IWebDriver driver, Enums.Enums.WebBrowser webBrowser) : base(driver, webBrowser)
         {
@@ -25,6 +36,72 @@ namespace ParaBankPractice.Pages
         public string checkSignUpTitle()
         {
             return WaitElementClickableAndGet(signUpFiled).Text;
+        }
+
+        public RegisterPage EnterFirstName(string firstName)
+        {
+            WaitElementVisibleAndGet(firstNameInput).SendKeys(firstName);
+            return this;
+        }
+        
+        public RegisterPage EnterLastName(string lastName)
+        {
+            WaitElementVisibleAndGet(lastNameInput).SendKeys(lastName);
+            return this;
+        }
+        
+        public RegisterPage EnterAddress(string address)
+        {
+            WaitElementVisibleAndGet(addressInput).SendKeys(address);
+            return this;
+        }
+        
+        public RegisterPage EnterCity(string city)
+        {
+            WaitElementVisibleAndGet(cityInput).SendKeys(city);
+            return this;
+        }
+        
+        public RegisterPage EnterState(string state)
+        {
+            WaitElementVisibleAndGet(stateInput).SendKeys(state);
+            return this;
+        }
+        
+        public RegisterPage EnterZipCode(string zipCode)
+        {
+            WaitElementVisibleAndGet(zipCodeInput).SendKeys(zipCode);
+            return this;
+        }
+        
+        public RegisterPage EnterPhoneNumber(string phoneNumber)
+        {
+            WaitElementVisibleAndGet(phoneNumberInput).SendKeys(phoneNumber);
+            return this;
+        }
+        
+        public RegisterPage EnterSsn(string ssn)
+        {
+            WaitElementVisibleAndGet(ssnInput).SendKeys(ssn);
+            return this;
+        }
+        
+        public RegisterPage EnterUserName(string userName)
+        {
+            WaitElementVisibleAndGet(usernameInput).SendKeys(userName);
+            return this;
+        }
+        
+        public RegisterPage EnterPassword(string password)
+        {
+            WaitElementVisibleAndGet(passwordInput).SendKeys(password);
+            return this;
+        }
+        
+        public RegisterPage EnterConfirmPassword(string confirmPassword)
+        {
+            WaitElementVisibleAndGet(confirmPasswordInput).SendKeys(confirmPassword);
+            return this;
         }
     }
 }
