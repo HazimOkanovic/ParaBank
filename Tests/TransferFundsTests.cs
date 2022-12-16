@@ -84,7 +84,7 @@ namespace ParaBankPractice.Tests
             homePage
                 .ClickTransferFundsButton();
             
-            Assert.That(transferFundsPage.GetTitle(), Is.EqualTo("Transfer Funds"));
+            Assert.That(transferFundsPage.GetTitle(), Is.EqualTo(Constants.TransferFunds));
         }
         
         [Test, Order(6)]
@@ -93,13 +93,13 @@ namespace ParaBankPractice.Tests
             ThreadSleepHelper.Sleep(200);
 
             transferFundsPage
-                .EnterAmount("50")
+                .EnterAmount(Constants.Fifty)
                 .SelectSecondOptionToAccount()
                 .ClickTransferButton();
             
             ThreadSleepHelper.Sleep(200);
             
-            Assert.That(transferFundsPage.GetTitle(), Is.EqualTo("Transfer Complete!"));
+            Assert.That(transferFundsPage.GetTitle(), Is.EqualTo(Constants.TransferComplete));
         }
         
         [Test, Order(7)]
@@ -109,8 +109,8 @@ namespace ParaBankPractice.Tests
                 .ClickAccountOverviewButton();
             
             Assert.That(accountOverviewPage.GetTitle(), Is.EqualTo(Constants.AccountsOverview));
-            Assert.That(accountOverviewPage.GetFirstAccountAmount(), Is.EqualTo("$250.00"));
-            Assert.That(accountOverviewPage.GetSecondAccountAmount(), Is.EqualTo("$150.00"));
+            Assert.That(accountOverviewPage.GetFirstAccountAmount(), Is.EqualTo(Constants.TwoHundredFiftyDollars));
+            Assert.That(accountOverviewPage.GetSecondAccountAmount(), Is.EqualTo(Constants.HundredAndFiftyDollars));
             Assert.That(accountOverviewPage.GetTotalAmount(), Is.EqualTo(Constants.FourHundredDollars));
         }
         
@@ -120,7 +120,7 @@ namespace ParaBankPractice.Tests
             homePage
                 .ClickTransferFundsButton();
             
-            Assert.That(transferFundsPage.GetTitle(), Is.EqualTo("Transfer Funds"));
+            Assert.That(transferFundsPage.GetTitle(), Is.EqualTo(Constants.TransferFunds));
         }
         
         [Test, Order(9)]
@@ -135,7 +135,7 @@ namespace ParaBankPractice.Tests
             
             ThreadSleepHelper.Sleep(200);
             
-            Assert.That(transferFundsPage.GetTitle(), Is.EqualTo("Transfer Complete!"));
+            Assert.That(transferFundsPage.GetTitle(), Is.EqualTo(Constants.TransferComplete));
         }
         
         [Test, Order(10)]
@@ -145,8 +145,8 @@ namespace ParaBankPractice.Tests
                 .ClickAccountOverviewButton();
             
             Assert.That(accountOverviewPage.GetTitle(), Is.EqualTo(Constants.AccountsOverview));
-            Assert.That(accountOverviewPage.GetFirstAccountAmount(), Is.EqualTo("$400.00"));
-            Assert.That(accountOverviewPage.GetSecondAccountAmount(), Is.EqualTo("$0.00"));
+            Assert.That(accountOverviewPage.GetFirstAccountAmount(), Is.EqualTo(Constants.FourHundredDollars));
+            Assert.That(accountOverviewPage.GetSecondAccountAmount(), Is.EqualTo(Constants.ZeroDollars));
             Assert.That(accountOverviewPage.GetTotalAmount(), Is.EqualTo(Constants.FourHundredDollars));
         }
     }
