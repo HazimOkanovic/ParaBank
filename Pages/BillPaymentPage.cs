@@ -22,7 +22,8 @@ namespace ParaBankPractice.Pages
         private readonly By ZipCodeError = By.XPath("//td//span[@ng-show = '!validationModel.zipCode']");
         private readonly By PhoneNumberError = By.XPath("//td//span[@ng-show = '!validationModel.phoneNumber']");
         private readonly By AccountError = By.XPath("(//td//span[contains(text(), 'Account')])[1]");
-        private readonly By VerifyAccountError = By.XPath("(//td//span[contains(text(), 'Account')])[2]");
+        private readonly By VerifyAccountError = By.XPath("(//td//span[contains(text(), 'count')])[2]");
+        private readonly By VerifyAccountErrorMismatch = By.XPath("(//td//span[contains(text(), 'count')])[3]");
         private readonly By AmountError = By.XPath("(//td//span[contains(text(), 'amount')])[1]");
         private readonly By SubmitPaymentButton = By.XPath("//tr//td//input[@type='submit']");
         
@@ -129,9 +130,20 @@ namespace ParaBankPractice.Pages
             return WaitElementVisibleAndGet(VerifyAccountError).Text;
         }
         
+        public string GetVerifyAccountMismatchError()
+        {
+            return WaitElementVisibleAndGet(VerifyAccountErrorMismatch).Text;
+        }
+        
         public string GetAmountError()
         {
             return WaitElementVisibleAndGet(AmountError).Text;
+        }
+
+        public BillPaymentPage ClearVerifyPassword()
+        {
+            WaitElementVisibleAndGet(VerifyAccountField).Clear();
+            return this;
         }
 
         public BillPaymentPage ClickSubmitButton()
