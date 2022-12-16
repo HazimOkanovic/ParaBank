@@ -12,6 +12,7 @@
     &lt;ProjectFile&gt;4805DDAE-19D3-4C5D-B672-B35B7E4B9747/d:Tests/f:NewAccountTests.cs&lt;/ProjectFile&gt;&#xD;
     &lt;ProjectFile&gt;4805DDAE-19D3-4C5D-B672-B35B7E4B9747/d:Tests/f:AccountOverviewTests.cs&lt;/ProjectFile&gt;&#xD;
     &lt;ProjectFile&gt;4805DDAE-19D3-4C5D-B672-B35B7E4B9747/d:Tests/f:TransferFundsTests.cs&lt;/ProjectFile&gt;&#xD;
+    &lt;ProjectFile&gt;4805DDAE-19D3-4C5D-B672-B35B7E4B9747/d:Tests/f:BillPaymentTests.cs&lt;/ProjectFile&gt;&#xD;
   &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=420b7831_002D9e30_002D4fc7_002D88b6_002Dc5c35d9acf66/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Session" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;

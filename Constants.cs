@@ -54,5 +54,12 @@ namespace ParaBankPractice
         public const string ZeroDollars = "$0.00";
         public const string TransferFunds = "Transfer Funds";
         public const string TransferComplete = "Transfer Complete!";
+        public const string BillPaymentSuccess = "Bill Payment Successful";
+        public const string AmountError = "The amount cannot be empty.";
+        public const string AccountMismatch = "The account numbers do not match.";
+        public const string AccountError = "Account number is required.";
+        public const string PhoneNumberError = "Phone number is required.";
+        public const string PayeeNameError = "Payee name is required.";
+        public const string BillPaymentService = "Bill Payment Service";
     }
 }
