@@ -57,13 +57,46 @@ namespace ParaBankPractice.Tests
         }
 
         [Test, Order(3)]
-
         public void GoToAccountOverviewAndCheckAmountTest()
         {
             homePage
                 .ClickAccountOverviewButton();
             
             Assert.That(accountOverviewPage.GetTitle(), Is.EqualTo("Accounts Overview"));
+            Assert.That(accountOverviewPage.GetFirstAccountAmount(), Is.EqualTo("$400.00"));
+            Assert.That(accountOverviewPage.GetTotalAmount(), Is.EqualTo("$400.00"));
+        }
+        
+        [Test, Order(4)]
+        public void GoToNewAccountTest()
+        {
+            homePage
+                .ClickNewAccountButton();
+            
+            Assert.That(newAccountPage.GetTitle(), Is.EqualTo(Constants.NewAccountMessage));
+        }
+
+        [Test, Order(5)]
+        public void OpenNewAccountTest()
+        {
+            ThreadSleepHelper.Sleep(250);
+            
+            newAccountPage
+                .ClickOpenNewAccountButton();
+            
+            Assert.That(newAccountPage.GetSuccessMessage(), Is.EqualTo(Constants.BankAccountCreatedMessage));
+        }
+        
+        [Test, Order(6)]
+
+        public void CheckAmountAgainTest()
+        {
+            homePage
+                .ClickAccountOverviewButton();
+            
+            Assert.That(accountOverviewPage.GetTitle(), Is.EqualTo("Accounts Overview"));
+            Assert.That(accountOverviewPage.GetFirstAccountAmount(), Is.EqualTo("$300.00"));
+            Assert.That(accountOverviewPage.GetSecondAccountAmount(), Is.EqualTo("$100.00"));
             Assert.That(accountOverviewPage.GetTotalAmount(), Is.EqualTo("$400.00"));
         }
     }
