@@ -150,10 +150,12 @@
         <Compile Include="Pages\TransferFundsPage.cs" />
         <Compile Include="Pages\UpdateInfoPage.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Tests\AccountOverviewTests.cs" />
         <Compile Include="Tests\BaseTest.cs" />
         <Compile Include="Tests\LogInTests.cs" />
         <Compile Include="Tests\NewAccountTests.cs" />
         <Compile Include="Tests\RegisterTests.cs" />
+        <Compile Include="Tests\TransferFundsTests.cs" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="API\Models" />

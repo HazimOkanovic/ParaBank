@@ -44,5 +44,15 @@ namespace ParaBankPractice
         public const string AccountCreatedMessage = "Your account was created successfully. You are now logged in.";
         public const string NewAccountMessage = "Open New Account";
         public const string BankAccountCreatedMessage = "Congratulations, your account is now open.";
+        public const string AccountsOverview = "Accounts Overview";
+        public const string FourHundredDollars = "$400.00";
+        public const string ThreeHundredDollars = "$300.00";
+        public const string OneHundredDollars = "$100.00";
+        public const string TwoHundredFiftyDollars = "$250.00";
+        public const string HundredAndFiftyDollars = "$150.00";
+        public const string Fifty = "50";
+        public const string ZeroDollars = "$0.00";
+        public const string TransferFunds = "Transfer Funds";
+        public const string TransferComplete = "Transfer Complete!";
     }
 }
