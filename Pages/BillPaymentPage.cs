@@ -21,9 +21,9 @@ namespace ParaBankPractice.Pages
         private readonly By StateError = By.XPath("//td//span[@ng-show = '!validationModel.state']");
         private readonly By ZipCodeError = By.XPath("//td//span[@ng-show = '!validationModel.zipCode']");
         private readonly By PhoneNumberError = By.XPath("//td//span[@ng-show = '!validationModel.phoneNumber']");
-        private readonly By AccountError = By.XPath("//td//span[@ng-show = '!validationModel.account']");
-        private readonly By VerifyAccountError = By.XPath("//td//span[@ng-show = '!validationModel.verifyAccount']");
-        private readonly By AmountError = By.XPath("//td//span[@ng-show = '!validationModel.amount']");
+        private readonly By AccountError = By.XPath("(//td//span[contains(text(), 'Account')])[1]");
+        private readonly By VerifyAccountError = By.XPath("(//td//span[contains(text(), 'Account')])[2]");
+        private readonly By AmountError = By.XPath("(//td//span[contains(text(), 'amount')])[1]");
         private readonly By SubmitPaymentButton = By.XPath("//tr//td//input[@type='submit']");
         
         public BillPaymentPage(IWebDriver driver, Enums.Enums.WebBrowser webBrowser) : base(driver, webBrowser)
