@@ -11,6 +11,7 @@ namespace ParaBankPractice.Tests
         private readonly HomePage homePage;
         private readonly NewAccountPage newAccountPage;
         private readonly TransferFundsPage transferFundsPage;
+        private readonly AccountOverviewPage accountOverviewPage;
         
         public TransferFundsTests(Enums.Enums.WebBrowser webBrowser) : base(webBrowser)
         {
@@ -19,6 +20,7 @@ namespace ParaBankPractice.Tests
             homePage = new HomePage(driver, webBrowser);
             newAccountPage = new NewAccountPage(driver, webBrowser);
             transferFundsPage = new TransferFundsPage(driver, webBrowser);
+            accountOverviewPage = new AccountOverviewPage(driver, webBrowser);
         }
         
         [OneTimeSetUp]
@@ -54,6 +56,98 @@ namespace ParaBankPractice.Tests
                 .ClickRegisterButton();
             
             Assert.That(homePage.GetSuccessRegistrationMessage(), Is.EqualTo(Constants.AccountCreatedMessage));
+        }
+        
+        [Test, Order(3)]
+        public void GoToNewAccountTest()
+        {
+            homePage
+                .ClickNewAccountButton();
+            
+            Assert.That(newAccountPage.GetTitle(), Is.EqualTo(Constants.NewAccountMessage));
+        }
+
+        [Test, Order(4)]
+        public void OpenNewAccountTest()
+        {
+            ThreadSleepHelper.Sleep(250);
+            
+            newAccountPage
+                .ClickOpenNewAccountButton();
+            
+            Assert.That(newAccountPage.GetSuccessMessage(), Is.EqualTo(Constants.BankAccountCreatedMessage));
+        }
+        
+        [Test, Order(5)]
+        public void GoToTransferFundsTest()
+        {
+            homePage
+                .ClickTransferFundsButton();
+            
+            Assert.That(transferFundsPage.GetTitle(), Is.EqualTo("Transfer Funds"));
+        }
+        
+        [Test, Order(6)]
+        public void MakeFirstTransferTest()
+        {
+            ThreadSleepHelper.Sleep(200);
+
+            transferFundsPage
+                .EnterAmount("50")
+                .SelectSecondOptionToAccount()
+                .ClickTransferButton();
+            
+            ThreadSleepHelper.Sleep(200);
+            
+            Assert.That(transferFundsPage.GetTitle(), Is.EqualTo("Transfer Complete!"));
+        }
+        
+        [Test, Order(7)]
+        public void CheckAmountTest()
+        {
+            homePage
+                .ClickAccountOverviewButton();
+            
+            Assert.That(accountOverviewPage.GetTitle(), Is.EqualTo(Constants.AccountsOverview));
+            Assert.That(accountOverviewPage.GetFirstAccountAmount(), Is.EqualTo("$250.00"));
+            Assert.That(accountOverviewPage.GetSecondAccountAmount(), Is.EqualTo("$150.00"));
+            Assert.That(accountOverviewPage.GetTotalAmount(), Is.EqualTo(Constants.FourHundredDollars));
+        }
+        
+        [Test, Order(8)]
+        public void GoToTransferFundsAgainTest()
+        {
+            homePage
+                .ClickTransferFundsButton();
+            
+            Assert.That(transferFundsPage.GetTitle(), Is.EqualTo("Transfer Funds"));
+        }
+        
+        [Test, Order(9)]
+        public void MakeFirstTransferAgainTest()
+        {
+            ThreadSleepHelper.Sleep(200);
+
+            transferFundsPage
+                .EnterAmount("150")
+                .SelectSecondOptionFromAccount()
+                .ClickTransferButton();
+            
+            ThreadSleepHelper.Sleep(200);
+            
+            Assert.That(transferFundsPage.GetTitle(), Is.EqualTo("Transfer Complete!"));
+        }
+        
+        [Test, Order(10)]
+        public void CheckAmountAgainTest()
+        {
+            homePage
+                .ClickAccountOverviewButton();
+            
+            Assert.That(accountOverviewPage.GetTitle(), Is.EqualTo(Constants.AccountsOverview));
+            Assert.That(accountOverviewPage.GetFirstAccountAmount(), Is.EqualTo("$400.00"));
+            Assert.That(accountOverviewPage.GetSecondAccountAmount(), Is.EqualTo("$0.00"));
+            Assert.That(accountOverviewPage.GetTotalAmount(), Is.EqualTo(Constants.FourHundredDollars));
         }
     }
 }

@@ -37,5 +37,11 @@ namespace ParaBankPractice.Pages
             SelectFromDropdown(ToAccountDropdown, ToAccountSecondOption);
             return this;
         }
+
+        public TransferFundsPage ClickTransferButton()
+        {
+            WaitElementVisibleAndGet(TransferButton).Click();
+            return this;
+        }
     }
 }
