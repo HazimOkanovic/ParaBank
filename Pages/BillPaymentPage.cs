@@ -15,7 +15,17 @@ namespace ParaBankPractice.Pages
         private readonly By VerifyAccountField = By.XPath("//tr//td//input[@name='verifyAccount']");
         private readonly By AmountField = By.XPath("//tr//td//input[@name='amount']");
         private readonly By FromAccountDropdown = By.XPath("//tr//td//select[@name='fromAccountId']");
+        private readonly By NameError = By.XPath("//td//span[@ng-show = '!validationModel.name']");
+        private readonly By AddressError = By.XPath("//td//span[@ng-show = '!validationModel.address']");
+        private readonly By CityError = By.XPath("//td//span[@ng-show = '!validationModel.city']");
+        private readonly By StateError = By.XPath("//td//span[@ng-show = '!validationModel.state']");
+        private readonly By ZipCodeError = By.XPath("//td//span[@ng-show = '!validationModel.zipCode']");
+        private readonly By PhoneNumberError = By.XPath("//td//span[@ng-show = '!validationModel.phoneNumber']");
+        private readonly By AccountError = By.XPath("//td//span[@ng-show = '!validationModel.account']");
+        private readonly By VerifyAccountError = By.XPath("//td//span[@ng-show = '!validationModel.verifyAccount']");
+        private readonly By AmountError = By.XPath("//td//span[@ng-show = '!validationModel.amount']");
         private readonly By SubmitPaymentButton = By.XPath("//tr//td//input[@type='submit']");
+        
         public BillPaymentPage(IWebDriver driver, Enums.Enums.WebBrowser webBrowser) : base(driver, webBrowser)
         {
         }
@@ -23,6 +33,12 @@ namespace ParaBankPractice.Pages
         public string GetTitle()
         {
             return WaitElementVisibleAndGet(Title).Text;
+        }
+
+        public BillPaymentPage EnterName(string name)
+        {
+            WaitElementVisibleAndGet(NameField).SendKeys(name);
+            return this;
         }
     }
 }
