@@ -62,9 +62,9 @@ namespace ParaBankPractice.Tests
             homePage
                 .ClickAccountOverviewButton();
             
-            Assert.That(accountOverviewPage.GetTitle(), Is.EqualTo("Accounts Overview"));
-            Assert.That(accountOverviewPage.GetFirstAccountAmount(), Is.EqualTo("$400.00"));
-            Assert.That(accountOverviewPage.GetTotalAmount(), Is.EqualTo("$400.00"));
+            Assert.That(accountOverviewPage.GetTitle(), Is.EqualTo(Constants.AccountsOverview));
+            Assert.That(accountOverviewPage.GetFirstAccountAmount(), Is.EqualTo(Constants.FourHundredDollars));
+            Assert.That(accountOverviewPage.GetTotalAmount(), Is.EqualTo(Constants.FourHundredDollars));
         }
         
         [Test, Order(4)]
@@ -88,16 +88,15 @@ namespace ParaBankPractice.Tests
         }
         
         [Test, Order(6)]
-
         public void CheckAmountAgainTest()
         {
             homePage
                 .ClickAccountOverviewButton();
             
-            Assert.That(accountOverviewPage.GetTitle(), Is.EqualTo("Accounts Overview"));
-            Assert.That(accountOverviewPage.GetFirstAccountAmount(), Is.EqualTo("$300.00"));
-            Assert.That(accountOverviewPage.GetSecondAccountAmount(), Is.EqualTo("$100.00"));
-            Assert.That(accountOverviewPage.GetTotalAmount(), Is.EqualTo("$400.00"));
+            Assert.That(accountOverviewPage.GetTitle(), Is.EqualTo(Constants.AccountsOverview));
+            Assert.That(accountOverviewPage.GetFirstAccountAmount(), Is.EqualTo(Constants.ThreeHundredDollars));
+            Assert.That(accountOverviewPage.GetSecondAccountAmount(), Is.EqualTo(Constants.OneHundredDollars));
+            Assert.That(accountOverviewPage.GetTotalAmount(), Is.EqualTo(Constants.FourHundredDollars));
         }
     }
 }
