@@ -40,5 +40,104 @@ namespace ParaBankPractice.Pages
             WaitElementVisibleAndGet(NameField).SendKeys(name);
             return this;
         }
+        
+        public BillPaymentPage EnterAddress(string address)
+        {
+            WaitElementVisibleAndGet(AddressField).SendKeys(address);
+            return this;
+        }
+        
+        public BillPaymentPage EnterCity(string city)
+        {
+            WaitElementVisibleAndGet(CityField).SendKeys(city);
+            return this;
+        }
+        
+        public BillPaymentPage EnterState(string state)
+        {
+            WaitElementVisibleAndGet(StateField).SendKeys(state);
+            return this;
+        }
+        
+        public BillPaymentPage EnterZipCode(string zipCode)
+        {
+            WaitElementVisibleAndGet(ZipCodeField).SendKeys(zipCode);
+            return this;
+        }
+        
+        public BillPaymentPage EnterPhoneNumber(string phoneNumber)
+        {
+            WaitElementVisibleAndGet(PhoneNumberField).SendKeys(phoneNumber);
+            return this;
+        }
+        
+        public BillPaymentPage EnterAccount(string accountNumber)
+        {
+            WaitElementVisibleAndGet(AccountNumberField).SendKeys(accountNumber);
+            return this;
+        }
+        
+        public BillPaymentPage EnterVerifyAccount(string verifyAccount)
+        {
+            WaitElementVisibleAndGet(VerifyAccountField).SendKeys(verifyAccount);
+            return this;
+        }
+        
+        public BillPaymentPage EnterAmount(string amount)
+        {
+            WaitElementVisibleAndGet(AmountField).SendKeys(amount);
+            return this;
+        }
+        
+        public string GetNameError()
+        {
+            return WaitElementVisibleAndGet(NameError).Text;
+        }
+        
+        public string GetAddressError()
+        {
+            return WaitElementVisibleAndGet(AddressError).Text;
+        }
+        
+        public string GetCityError()
+        {
+            return WaitElementVisibleAndGet(CityError).Text;
+        }
+        
+        public string GetStateError()
+        {
+            return WaitElementVisibleAndGet(StateError).Text;
+        }
+        
+        public string GetZipCodeError()
+        {
+            return WaitElementVisibleAndGet(ZipCodeError).Text;
+        }
+        
+        public string GetPhoneNumberError()
+        {
+            return WaitElementVisibleAndGet(PhoneNumberError).Text;
+        }
+        
+        public string GetAccountError()
+        {
+            return WaitElementVisibleAndGet(AccountError).Text;
+        }
+        
+        public string GetVerifyAccountError()
+        {
+            return WaitElementVisibleAndGet(VerifyAccountError).Text;
+        }
+        
+        public string GetAmountError()
+        {
+            return WaitElementVisibleAndGet(AmountError).Text;
+        }
+
+        public BillPaymentPage ClickSubmitButton()
+        {
+            WaitElementVisibleAndGet(SubmitPaymentButton).Click();
+            return this;
+        }
     }
 }
