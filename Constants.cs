@@ -67,5 +67,15 @@ namespace ParaBankPractice
         public const string TransactionDetails = "Transaction Details";
         public const string ProfileUpdated = "Profile Updated";
         public const string UpdateProfile = "Update Profile";
+        public const string RequestLoan = "Apply for a Loan";
+        public const string FiftyK = "50000";
+        public const string TwoHundred = "200";
+        public const string LoanProcessed = "Loan Request Processed";
+
+        public const string RequestDenied =
+            "We cannot grant a loan in that amount with your available funds and down payment.";
+
+        public const string TwoK = "2000";
+        public const string RequestApproved = "Congratulations, your loan has been approved.";
     }
 }
