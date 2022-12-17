@@ -61,5 +61,9 @@ namespace ParaBankPractice
         public const string PhoneNumberError = "Phone number is required.";
         public const string PayeeNameError = "Payee name is required.";
         public const string BillPaymentService = "Bill Payment Service";
+        public const string Hundred = "100";
+        public const string FindTransactions = "Find Transactions";
+        public const string TransactionResults = "Transaction Results";
+        public const string TransactionDetails = "Transaction Details";
     }
 }

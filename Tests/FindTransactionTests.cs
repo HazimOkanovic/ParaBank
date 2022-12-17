@@ -94,11 +94,11 @@ namespace ParaBankPractice.Tests
             ThreadSleepHelper.Sleep(200);
 
             transferFundsPage
-                .EnterAmount(Constants.Fifty)
+                .EnterAmount(Constants.Hundred)
                 .SelectSecondOptionToAccount()
                 .ClickTransferButton();
             
-            ThreadSleepHelper.Sleep(200);
+            ThreadSleepHelper.Sleep(500);
             
             Assert.That(transferFundsPage.GetTitle(), Is.EqualTo(Constants.TransferComplete));
         }
@@ -109,18 +109,20 @@ namespace ParaBankPractice.Tests
             homePage
                 .ClickFindTransactionsButton();
             
-            Assert.That(findTransactionsPage.GetTitle(), Is.EqualTo("Find Transactions"));
+            Assert.That(findTransactionsPage.GetTitle(), Is.EqualTo(Constants.FindTransactions));
         }
 
         [Test, Order(8)]
         public void FindTransactionsByDate()
         {
             findTransactionsPage
-                .EnterTransactionDate(DateTime.Today.ToString("M/d/yy"))
+                .EnterTransactionDate(DateTime.Today.ToString("M-d-yyyy"))
                 .ClickFindTransactionDate();
             
-            Assert.That(findTransactionsPage.GetTitle(), Is.EqualTo("Please fill out this field."));
-            Assert.That(findTransactionsPage.GetTransactionAmount(), Is.EqualTo("$50.00"));
+            ThreadSleepHelper.Sleep(300);
+            
+            Assert.That(findTransactionsPage.GetTitle(), Is.EqualTo(Constants.TransactionResults));
+            Assert.That(findTransactionsPage.GetTransactionAmount(), Is.EqualTo(Constants.OneHundredDollars));
         }
 
         [Test, Order(9)]
@@ -130,8 +132,8 @@ namespace ParaBankPractice.Tests
                 .ClickTransactionDetails()
                 .GetTransactionId();
             
-            Assert.That(findTransactionsPage.GetTitle(), Is.EqualTo("Transaction Details"));
-            Assert.That(findTransactionsPage.GetTransactionAmount(), Is.EqualTo("$50.00"));
+            Assert.That(findTransactionsPage.GetTitle(), Is.EqualTo(Constants.TransactionDetails));
+            Assert.That(findTransactionsPage.GetTransactionAmountFromDetails(), Is.EqualTo(Constants.OneHundredDollars));
         }
         
         [Test, Order(10)]
@@ -142,7 +144,64 @@ namespace ParaBankPractice.Tests
                 .EnterTransactionId(findTransactionsPage.TransactionId)
                 .ClickFindTransactionId();
             
-            Assert.That(findTransactionsPage.GetTransactionAmount(), Is.EqualTo("$50.00"));
+            Assert.That(findTransactionsPage.GetTransactionAmount(), Is.EqualTo(Constants.OneHundredDollars));
+        }
+        
+        [Test, Order(11)]
+        public void GoToTransactionPageAndFindByDateRange()
+        {
+            homePage
+                .ClickFindTransactionsButton()
+                .EnterTransactionFromDate(DateTime.Today.AddDays(-1).ToString("M-d-yyyy"))
+                .EnterTransactionToDate(DateTime.Today.AddDays(1).ToString("M-d-yyyy"))
+                .ClickFindTransactionDateRange();
+            
+            Assert.That(findTransactionsPage.GetTransactionAmount(), Is.EqualTo(Constants.OneHundredDollars));
+        }
+        
+        [Test, Order(12)]
+        public void GoToTransactionPageAndFindByAmount()
+        {
+            homePage
+                .ClickFindTransactionsButton()
+                .EnterTransactionAmount(Constants.Hundred)
+                .ClickFindTransactionAmount();
+            
+            Assert.That(findTransactionsPage.GetTransactionAmount(), Is.EqualTo(Constants.OneHundredDollars));
+        }
+        
+        [Test, Order(13)]
+        public void IncorrectDateFormatTest()
+        {
+            homePage
+                .ClickFindTransactionsButton()
+                .EnterTransactionDate(DateTime.Today.ToString("M/d/yyyy"))
+                .ClickFindTransactionDate();
+            
+            Assert.That(findTransactionsPage.GetDateFormatError(), Is.EqualTo(Constants.InternalError));
+        }
+        
+        [Test, Order(14)]
+        public void DateRangeIncorrectFormatTest()
+        {
+            homePage
+                .ClickFindTransactionsButton()
+                .EnterTransactionFromDate(DateTime.Today.AddDays(-1).ToString("M/d/yyyy"))
+                .EnterTransactionToDate(DateTime.Today.AddDays(1).ToString("M/d/yyyy"))
+                .ClickFindTransactionDateRange();
+            
+            Assert.That(findTransactionsPage.GetDateFormatError(), Is.EqualTo(Constants.InternalError));
+        }
+
+        [Test, Order(15)]
+        public void IncorrectIdNumberTest()
+        {
+            homePage
+                .ClickFindTransactionsButton()
+                .EnterTransactionId(Constants.Ssn)
+                .ClickFindTransactionId();
+            
+            Assert.That(findTransactionsPage.GetDateFormatError(), Is.EqualTo(Constants.InternalError));
         }
     }
 }

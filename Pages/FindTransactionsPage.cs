@@ -1,5 +1,4 @@
 using OpenQA.Selenium;
-using ParaBankPractice.Helpers;
 
 namespace ParaBankPractice.Pages
 {
@@ -21,6 +20,7 @@ namespace ParaBankPractice.Pages
         private readonly By FindTransactionDateRangeButton = By.XPath("(//div/child::button)[3]");
         private readonly By FindTransactionAmountButton = By.XPath("(//div/child::button)[4]");
         private readonly By TransactionAmountFromDetails = By.XPath("//tr//td[contains(text(), '$')]");
+        private readonly By DateFormatError = By.XPath("//div//p[contains(text(), 'error')]");
         
         public string TransactionId { get; set; }
         
@@ -83,6 +83,11 @@ namespace ParaBankPractice.Pages
         {
             TransactionId = WaitElementVisibleAndGet(TransactionIdNumber).Text;
             return TransactionId;
+        }
+
+        public string GetDateFormatError()
+        {
+            return WaitElementVisibleAndGet(DateFormatError).Text;
         }
 
         public FindTransactionsPage ClickTransactionDetails()
