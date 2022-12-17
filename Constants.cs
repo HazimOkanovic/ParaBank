@@ -65,5 +65,7 @@ namespace ParaBankPractice
         public const string FindTransactions = "Find Transactions";
         public const string TransactionResults = "Transaction Results";
         public const string TransactionDetails = "Transaction Details";
+        public const string ProfileUpdated = "Profile Updated";
+        public const string UpdateProfile = "Update Profile";
     }
 }

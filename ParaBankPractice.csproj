@@ -158,6 +158,7 @@
         <Compile Include="Tests\NewAccountTests.cs" />
         <Compile Include="Tests\RegisterTests.cs" />
         <Compile Include="Tests\TransferFundsTests.cs" />
+        <Compile Include="Tests\UpdateInfoTests.cs" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="API\Models" />

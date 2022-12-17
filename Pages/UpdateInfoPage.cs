@@ -1,4 +1,5 @@
 using OpenQA.Selenium;
+using ParaBankPractice.Helpers;
 
 namespace ParaBankPractice.Pages
 {
@@ -73,6 +74,7 @@ namespace ParaBankPractice.Pages
         
         public UpdateInfoPage ClearFirstName()
         {
+            ThreadSleepHelper.Sleep(200);
             WaitElementVisibleAndGet(FirstNameInput).Clear();
             return this;
         }
@@ -141,6 +143,12 @@ namespace ParaBankPractice.Pages
         public string GetZipCodeError()
         {
             return WaitElementVisibleAndGet(ZipCodeError).Text;
+        }
+
+        public UpdateInfoPage ClickSubmit()
+        {
+            WaitElementVisibleAndGet(SubmitButton).Click();
+            return this;
         }
     }
 }

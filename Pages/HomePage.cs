@@ -9,7 +9,7 @@ namespace ParaBankPractice.Pages
         private readonly By TransferFundsButton = By.XPath("//ul//li//a[contains(text(), 'Transfer Funds')]");
         private readonly By BillPayButton = By.XPath("//ul//li//a[contains(text(), 'Bill Pay')]");
         private readonly By FindTransactionsButton = By.XPath("//ul//li//a[contains(text(), 'Find Transactions')]");
-        private readonly By UpdateInfoButton = By.XPath("//ul//li//a[contains(text(), 'Update Info')]");
+        private readonly By UpdateInfoButton = By.XPath("//ul//li//a[contains(text(), 'Update')]");
         private readonly By RequestLoanButton = By.XPath("//ul//li//a[contains(text(), 'Request Loan')]");
         private readonly By LogOutButton = By.XPath("//ul//li//a[contains(text(), 'Log Out')]");
         private readonly By SuccessMessageLogin = By.XPath("//div//h1[@class = 'title']");
