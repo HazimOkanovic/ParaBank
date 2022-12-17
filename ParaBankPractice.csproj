@@ -153,6 +153,7 @@
         <Compile Include="Tests\AccountOverviewTests.cs" />
         <Compile Include="Tests\BaseTest.cs" />
         <Compile Include="Tests\BillPaymentTests.cs" />
+        <Compile Include="Tests\FindTransactionTests.cs" />
         <Compile Include="Tests\LogInTests.cs" />
         <Compile Include="Tests\NewAccountTests.cs" />
         <Compile Include="Tests\RegisterTests.cs" />

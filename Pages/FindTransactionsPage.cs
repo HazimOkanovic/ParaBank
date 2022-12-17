@@ -1,4 +1,5 @@
 using OpenQA.Selenium;
+using ParaBankPractice.Helpers;
 
 namespace ParaBankPractice.Pages
 {
@@ -82,11 +83,6 @@ namespace ParaBankPractice.Pages
         {
             TransactionId = WaitElementVisibleAndGet(TransactionIdNumber).Text;
             return TransactionId;
-        }
-        
-        public string GetErrorMessage()
-        {
-            return driver.SwitchTo().Alert().Text;
         }
 
         public FindTransactionsPage ClickTransactionDetails()
