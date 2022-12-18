@@ -26,6 +26,7 @@ namespace ParaBankPractice.Pages
         private readonly By VerifyAccountErrorMismatch = By.XPath("(//td//span[contains(text(), 'count')])[3]");
         private readonly By AmountError = By.XPath("(//td//span[contains(text(), 'amount')])[1]");
         private readonly By SubmitPaymentButton = By.XPath("//tr//td//input[@type='submit']");
+        private readonly By SuccessPaymentMessage = By.XPath("(//div//h1[@class='title'])[2]");
         
         public BillPaymentPage(IWebDriver driver, Enums.Enums.WebBrowser webBrowser) : base(driver, webBrowser)
         {
@@ -34,6 +35,11 @@ namespace ParaBankPractice.Pages
         public string GetTitle()
         {
             return WaitElementVisibleAndGet(Title).Text;
+        }
+        
+        public string GetSuccessMessage()
+        {
+            return WaitElementVisibleAndGet(SuccessPaymentMessage).Text;
         }
 
         public BillPaymentPage EnterName(string name)

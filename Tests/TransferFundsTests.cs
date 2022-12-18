@@ -133,7 +133,7 @@ namespace ParaBankPractice.Tests
                 .SelectSecondOptionFromAccount()
                 .ClickTransferButton();
             
-            ThreadSleepHelper.Sleep(200);
+            ThreadSleepHelper.Sleep(400);
             
             Assert.That(transferFundsPage.GetTitle(), Is.EqualTo(Constants.TransferComplete));
         }

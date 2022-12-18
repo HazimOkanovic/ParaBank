@@ -84,7 +84,7 @@ namespace ParaBankPractice.Tests
         public void EnteredOneMandatoryFieldTest()
         {
             billPaymentPage
-                .EnterName(Constants.ValidUserName)
+                .EnterName(Constants.NewUserName)
                 .ClickSubmitButton();
             
             Assert.That(billPaymentPage.GetAddressError(), Is.EqualTo(Constants.AddressError));
@@ -101,7 +101,7 @@ namespace ParaBankPractice.Tests
         public void EnteredTwoMandatoryFieldsTest()
         {
             billPaymentPage
-                .EnterAddress(Constants.Address)
+                .EnterAddress(Constants.City)
                 .ClickSubmitButton();
             
             Assert.That(billPaymentPage.GetCityError(), Is.EqualTo(Constants.CityError));
@@ -117,7 +117,7 @@ namespace ParaBankPractice.Tests
         public void EnteredThreeMandatoryFieldsTest()
         {
             billPaymentPage
-                .EnterCity(Constants.City)
+                .EnterCity(Constants.Address)
                 .ClickSubmitButton();
             
             Assert.That(billPaymentPage.GetStateError(), Is.EqualTo(Constants.StateError));
@@ -146,7 +146,7 @@ namespace ParaBankPractice.Tests
         public void EnteredFiveMandatoryFieldsTest()
         {
             billPaymentPage
-                .EnterZipCode(Constants.ZipCode)
+                .EnterZipCode(Constants.Ssn)
                 .ClickSubmitButton();
             
             Assert.That(billPaymentPage.GetPhoneNumberError(), Is.EqualTo(Constants.PhoneNumberError));
@@ -159,7 +159,7 @@ namespace ParaBankPractice.Tests
         public void EnteredSixMandatoryFieldsTest()
         {
             billPaymentPage
-                .EnterPhoneNumber(Constants.PhoneNumber)
+                .EnterPhoneNumber(Constants.ZipCode)
                 .ClickSubmitButton();
             
             Assert.That(billPaymentPage.GetAccountError(), Is.EqualTo(Constants.AccountError));
@@ -171,7 +171,7 @@ namespace ParaBankPractice.Tests
         public void EnteredSevenMandatoryFieldsTest()
         {
             billPaymentPage
-                .EnterAccount(Constants.PhoneNumber)
+                .EnterAccount(Constants.ValidAccountNo)
                 .ClickSubmitButton();
             
             Assert.That(billPaymentPage.GetVerifyAccountError(), Is.EqualTo(Constants.AccountError));
@@ -182,7 +182,7 @@ namespace ParaBankPractice.Tests
         public void EnteredEightMandatoryFieldsTest()
         {
             billPaymentPage
-                .EnterVerifyAccount(Constants.PhoneNumber)
+                .EnterVerifyAccount(Constants.ZipCode)
                 .ClickSubmitButton();
             
             Assert.That(billPaymentPage.GetAmountError(), Is.EqualTo(Constants.AmountError));
@@ -193,23 +193,25 @@ namespace ParaBankPractice.Tests
         {
             billPaymentPage
                 .ClearVerifyPassword()
-                .EnterVerifyAccount(Constants.Ssn)
+                .EnterVerifyAccount(Constants.PhoneNumber)
                 .ClickSubmitButton();
             
             Assert.That(billPaymentPage.GetVerifyAccountMismatchError(), Is.EqualTo(Constants.AccountMismatch));
             Assert.That(billPaymentPage.GetAmountError(), Is.EqualTo(Constants.AmountError));
         }
         
-        [Test, Order(14), Ignore("The website is not working right now")]
+        [Test, Order(14)]
         public void SuccessfulPaymentTest()
         {
             billPaymentPage
                 .ClearVerifyPassword()
-                .EnterVerifyAccount(Constants.PhoneNumber)
+                .EnterVerifyAccount(Constants.ValidAccountNo)
                 .EnterAmount(Constants.Fifty)
                 .ClickSubmitButton();
             
-            Assert.That(billPaymentPage.GetTitle(), Is.EqualTo(Constants.BillPaymentSuccess));
+            ThreadSleepHelper.Sleep(800);
+            
+            Assert.That(billPaymentPage.GetSuccessMessage(), Is.EqualTo(Constants.BillPaymentSuccess));
         }
     }
 }
