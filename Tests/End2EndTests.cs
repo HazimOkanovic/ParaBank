@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 using ParaBankPractice.Helpers;
 using ParaBankPractice.Pages;
@@ -13,6 +14,9 @@ namespace ParaBankPractice.Tests
         private readonly AccountOverviewPage accountOverviewPage;
         private readonly TransferFundsPage transferFundsPage;
         private readonly BillPaymentPage billPaymentPage;
+        private readonly FindTransactionsPage findTransactionsPage;
+        private readonly UpdateInfoPage updateInfoPage;
+        private readonly RequestLoanPage requestLoanPage;
         
         public End2EndTests(Enums.Enums.WebBrowser webBrowser) : base(webBrowser)
         {
@@ -23,6 +27,9 @@ namespace ParaBankPractice.Tests
             accountOverviewPage = new AccountOverviewPage(driver, webBrowser);
             transferFundsPage = new TransferFundsPage(driver, webBrowser);
             billPaymentPage = new BillPaymentPage(driver, webBrowser);
+            findTransactionsPage = new FindTransactionsPage(driver, webBrowser);
+            updateInfoPage = new UpdateInfoPage(driver, webBrowser);
+            requestLoanPage = new RequestLoanPage(driver, webBrowser);
         }
         
         [OneTimeSetUp]
@@ -95,14 +102,17 @@ namespace ParaBankPractice.Tests
         [Test, Order(6)]
         public void MakeTransferTest()
         {
-            ThreadSleepHelper.Sleep(200);
-
+            homePage
+                .ClickTransferFundsButton();
+            
+            ThreadSleepHelper.Sleep(250);
+            
             transferFundsPage
                 .EnterAmount(Constants.Fifty)
                 .SelectSecondOptionToAccount()
                 .ClickTransferButton();
             
-            ThreadSleepHelper.Sleep(200);
+            ThreadSleepHelper.Sleep(500);
             
             Assert.That(transferFundsPage.GetTitle(), Is.EqualTo(Constants.TransferComplete));
         }
@@ -110,7 +120,8 @@ namespace ParaBankPractice.Tests
         [Test, Order(7)]
         public void BillPaymentTest()
         {
-            billPaymentPage
+            homePage
+                .ClickBillPayButton()
                 .EnterName(Constants.NewUserName)
                 .EnterAddress(Constants.Address)
                 .EnterCity(Constants.City)
@@ -125,6 +136,57 @@ namespace ParaBankPractice.Tests
             ThreadSleepHelper.Sleep(800);
             
             Assert.That(billPaymentPage.GetSuccessMessage(), Is.EqualTo(Constants.BillPaymentSuccess));
+        }
+        
+        [Test, Order(8)]
+        public void FindTransactionsByDate()
+        {
+            homePage
+                .ClickFindTransactionsButton()
+                .EnterTransactionDate(DateTime.Today.ToString("M-d-yyyy"))
+                .ClickFindTransactionDate();
+            
+            ThreadSleepHelper.Sleep(300);
+            
+            Assert.That(findTransactionsPage.GetTitle(), Is.EqualTo(Constants.TransactionResults));
+            Assert.That(findTransactionsPage.GetTransactionAmount(), Is.EqualTo(Constants.OneHundredDollars));
+        }
+
+        [Test, Order(9)]
+        public void UpdateInfoTest()
+        {
+            homePage
+                .ClickUpdateInfoButton()
+                .ClearFirstName()
+                .EnterFirstName(Constants.FirstName)
+                .ClickSubmit();
+            
+            ThreadSleepHelper.Sleep(600);
+
+            Assert.That(updateInfoPage.GetTitle(), Is.EqualTo(Constants.ProfileUpdated));
+        }
+        
+        [Test, Order(10)]
+        public void SuccessfulRequestTest()
+        {
+            homePage
+                .ClickRequestLoanButton()
+                .EnterAmount(Constants.TwoK)
+                .EnterDownPayment(Constants.Hundred)
+                .ClickApply();
+            
+            ThreadSleepHelper.Sleep(700);
+            
+            Assert.That(requestLoanPage.GetTitle(), Is.EqualTo(Constants.LoanProcessed));
+            Assert.That(requestLoanPage.GetSuccessMessage(), Is.EqualTo(Constants.RequestApproved));
+        }
+        
+        [Test, Order(11)]
+        public void LogOutTest()
+        {
+            homePage.ClickLogOutButton();
+            
+            Assert.That(logInPage.GetMessageForLogin(), Is.EqualTo(Constants.LogOutMessage));
         }
     }
 }
