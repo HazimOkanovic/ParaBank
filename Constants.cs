@@ -13,7 +13,7 @@ namespace ParaBankPractice
             return new string(Enumerable.Repeat(chars, length)
                 .Select(s => s[Random.Next(s.Length)]).ToArray());
         }
-
+        public static string NewUserName = RandomString(7);
         public const string ValidUserName = "HazimOkanovic";
         public const string ValidPassword = "Something";
         public const string LogInMessage = "Accounts Overview";
