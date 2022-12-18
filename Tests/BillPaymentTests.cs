@@ -31,7 +31,7 @@ namespace ParaBankPractice.Tests
             logInPage
                 .ClickRegisterButton();
             
-            Assert.That(registerPage.checkSignUpTitle(), Is.EqualTo(Constants.SignUpTitle));
+            Assert.That(registerPage.CheckSignUpTitle(), Is.EqualTo(Constants.SignUpTitle));
         }
 
         [Test, Order(2)]
@@ -101,7 +101,7 @@ namespace ParaBankPractice.Tests
         public void EnteredTwoMandatoryFieldsTest()
         {
             billPaymentPage
-                .EnterAddress(Constants.City)
+                .EnterAddress(Constants.Address)
                 .ClickSubmitButton();
             
             Assert.That(billPaymentPage.GetCityError(), Is.EqualTo(Constants.CityError));
@@ -117,7 +117,7 @@ namespace ParaBankPractice.Tests
         public void EnteredThreeMandatoryFieldsTest()
         {
             billPaymentPage
-                .EnterCity(Constants.Address)
+                .EnterCity(Constants.City)
                 .ClickSubmitButton();
             
             Assert.That(billPaymentPage.GetStateError(), Is.EqualTo(Constants.StateError));
@@ -146,7 +146,7 @@ namespace ParaBankPractice.Tests
         public void EnteredFiveMandatoryFieldsTest()
         {
             billPaymentPage
-                .EnterZipCode(Constants.Ssn)
+                .EnterZipCode(Constants.ZipCode)
                 .ClickSubmitButton();
             
             Assert.That(billPaymentPage.GetPhoneNumberError(), Is.EqualTo(Constants.PhoneNumberError));
@@ -159,7 +159,7 @@ namespace ParaBankPractice.Tests
         public void EnteredSixMandatoryFieldsTest()
         {
             billPaymentPage
-                .EnterPhoneNumber(Constants.ZipCode)
+                .EnterPhoneNumber(Constants.PhoneNumber)
                 .ClickSubmitButton();
             
             Assert.That(billPaymentPage.GetAccountError(), Is.EqualTo(Constants.AccountError));
@@ -182,7 +182,7 @@ namespace ParaBankPractice.Tests
         public void EnteredEightMandatoryFieldsTest()
         {
             billPaymentPage
-                .EnterVerifyAccount(Constants.ZipCode)
+                .EnterVerifyAccount(Constants.ValidAccountNo)
                 .ClickSubmitButton();
             
             Assert.That(billPaymentPage.GetAmountError(), Is.EqualTo(Constants.AmountError));

@@ -31,7 +31,7 @@ namespace ParaBankPractice.Tests
             logInPage
                 .ClickRegisterButton();
             
-            Assert.That(registerPage.checkSignUpTitle(), Is.EqualTo(Constants.SignUpTitle));
+            Assert.That(registerPage.CheckSignUpTitle(), Is.EqualTo(Constants.SignUpTitle));
         }
 
         [Test, Order(2)]

@@ -33,7 +33,7 @@ namespace ParaBankPractice.Tests
             logInPage
                 .ClickRegisterButton();
             
-            Assert.That(registerPage.checkSignUpTitle(), Is.EqualTo(Constants.SignUpTitle));
+            Assert.That(registerPage.CheckSignUpTitle(), Is.EqualTo(Constants.SignUpTitle));
         }
 
         [Test, Order(2)]
@@ -88,7 +88,7 @@ namespace ParaBankPractice.Tests
         }
         
         [Test, Order(6)]
-        public void CheckAmountAgainTest()
+        public void CheckAmountTest()
         {
             homePage
                 .ClickAccountOverviewButton();

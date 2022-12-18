@@ -16,6 +16,7 @@ namespace ParaBankPractice.Pages
         protected BasePage(IWebDriver driver, Enums.Enums.WebBrowser webBrowser) : base(driver, webBrowser)
         {
         }
+        
         #region Methods allowing to dynamically pause the execution until needed element meets a condition
 
         protected void WaitElementExists(By by, int timeoutInSeconds = Constants.TimeoutInSeconds)

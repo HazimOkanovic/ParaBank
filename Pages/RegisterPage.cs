@@ -32,7 +32,7 @@ namespace ParaBankPractice.Pages
         {
         }
 
-        public string checkSignUpTitle()
+        public string CheckSignUpTitle()
         {
             return WaitElementClickableAndGet(signUpFiled).Text;
         }

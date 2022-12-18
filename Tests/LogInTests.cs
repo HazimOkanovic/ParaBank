@@ -1,4 +1,3 @@
-
 using NUnit.Framework;
 using ParaBankPractice.Helpers;
 using ParaBankPractice.Pages;
@@ -30,7 +29,7 @@ namespace ParaBankPractice.Tests
             logInPage
                 .ClickRegisterButton();
             
-            Assert.That(registerPage.checkSignUpTitle(), Is.EqualTo(Constants.SignUpTitle));
+            Assert.That(registerPage.CheckSignUpTitle(), Is.EqualTo(Constants.SignUpTitle));
         }
 
         [Test, Order(2)]
@@ -56,13 +55,14 @@ namespace ParaBankPractice.Tests
         [Test, Order(3)]
         public void LogOutTest()
         {
-            homePage.ClickLogOutButton();
+            homePage
+                .ClickLogOutButton();
             
             Assert.That(logInPage.GetMessageForLogin(), Is.EqualTo(Constants.LogOutMessage));
         }
 
         [Test, Order(4)]
-        public void LogInWithoutPassword()
+        public void LogInWithoutPasswordTest()
         {
             logInPage
                 .EnterUserName(Constants.ValidUserName)
@@ -72,7 +72,7 @@ namespace ParaBankPractice.Tests
         }
         
         [Test, Order(5)]
-        public void LogInWithoutUsername()
+        public void LogInWithoutUsernameTest()
         {
             logInPage
                 .EnterPassword(Constants.ValidPassword)
@@ -82,7 +82,7 @@ namespace ParaBankPractice.Tests
         }
 
         [Test, Order(6)]
-        public void IncorrectUsername()
+        public void IncorrectUsernameTest()
         {
             logInPage
                 .EnterUserName(Constants.IncorrectUserName)
@@ -93,7 +93,7 @@ namespace ParaBankPractice.Tests
         }
         
         [Test, Order(7)]
-        public void IncorrectPassword()
+        public void IncorrectPasswordTest()
         {
             logInPage
                 .EnterUserName(Constants.ValidPassword)
