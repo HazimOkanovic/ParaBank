@@ -104,7 +104,7 @@ namespace ParaBankPractice.Tests
         }
 
         [Test, Order(7)]
-        public void GoToFindTransactionsPage()
+        public void GoToFindTransactionsPageTest()
         {
             homePage
                 .ClickFindTransactionsButton();
@@ -113,7 +113,7 @@ namespace ParaBankPractice.Tests
         }
 
         [Test, Order(8)]
-        public void FindTransactionsByDate()
+        public void FindTransactionsByDateTest()
         {
             findTransactionsPage
                 .EnterTransactionDate(DateTime.Today.ToString("M-d-yyyy"))
@@ -126,7 +126,7 @@ namespace ParaBankPractice.Tests
         }
 
         [Test, Order(9)]
-        public void GetTransactionIdAndCheckAmount()
+        public void GetTransactionIdAndCheckAmountTest()
         {
             findTransactionsPage
                 .ClickTransactionDetails()
@@ -137,7 +137,7 @@ namespace ParaBankPractice.Tests
         }
         
         [Test, Order(10)]
-        public void GoToTransactionPageAndFindById()
+        public void GoToTransactionPageAndFindByIdTest()
         {
             homePage
                 .ClickFindTransactionsButton()
@@ -148,7 +148,7 @@ namespace ParaBankPractice.Tests
         }
         
         [Test, Order(11)]
-        public void GoToTransactionPageAndFindByDateRange()
+        public void GoToTransactionPageAndFindByDateRangeTest()
         {
             homePage
                 .ClickFindTransactionsButton()
@@ -160,7 +160,7 @@ namespace ParaBankPractice.Tests
         }
         
         [Test, Order(12)]
-        public void GoToTransactionPageAndFindByAmount()
+        public void GoToTransactionPageAndFindByAmountTest()
         {
             homePage
                 .ClickFindTransactionsButton()

@@ -184,7 +184,8 @@ namespace ParaBankPractice.Tests
         [Test, Order(11)]
         public void LogOutTest()
         {
-            homePage.ClickLogOutButton();
+            homePage
+                .ClickLogOutButton();
             
             Assert.That(logInPage.GetMessageForLogin(), Is.EqualTo(Constants.LogOutMessage));
         }

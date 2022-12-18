@@ -88,7 +88,7 @@ namespace ParaBankPractice.Tests
         }
         
         [Test, Order(6)]
-        public void CheckAmountAgainTest()
+        public void CheckAmountTest()
         {
             homePage
                 .ClickAccountOverviewButton();

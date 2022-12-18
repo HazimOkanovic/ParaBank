@@ -139,7 +139,7 @@ namespace ParaBankPractice.Tests
         }
         
         [Test, Order(10)]
-        public void SuccessfulInfoUpdate()
+        public void SuccessfulInfoUpdateTest()
         {
             updateInfoPage
                 .EnterZipCode(Constants.ZipCode)
