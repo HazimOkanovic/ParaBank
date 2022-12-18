@@ -124,7 +124,7 @@ namespace ParaBankPractice.Tests
         }
         
         [Test, Order(9)]
-        public void MakeFirstTransferAgainTest()
+        public void MakeTransferAgainTest()
         {
             ThreadSleepHelper.Sleep(200);
 
