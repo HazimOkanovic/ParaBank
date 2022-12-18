@@ -85,8 +85,8 @@ namespace ParaBankPractice.Tests
         public void IncorrectUsername()
         {
             logInPage
-                .EnterUserName("HazimHazimHazim")
-                .EnterPassword("NokiaN95")
+                .EnterUserName(Constants.IncorrectUserName)
+                .EnterPassword(Constants.ValidPassword)
                 .ClickLogInButton();
             
             Assert.That(logInPage.GetErrorMessage(), Is.EqualTo(Constants.InternalError));

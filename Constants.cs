@@ -13,8 +13,9 @@ namespace ParaBankPractice
             return new string(Enumerable.Repeat(chars, length)
                 .Select(s => s[Random.Next(s.Length)]).ToArray());
         }
-        public static string NewUserName = RandomString(7);
+        public static readonly string NewUserName = RandomString(7);
         public const string ValidUserName = "HazimOkanovic";
+        public const string IncorrectUserName = "HazimHazimHazim";
         public const string ValidPassword = "Something";
         public const string LogInMessage = "Accounts Overview";
         public const string LogOutMessage = "Customer Login";
@@ -54,7 +55,7 @@ namespace ParaBankPractice
         public const string ZeroDollars = "$0.00";
         public const string TransferFunds = "Transfer Funds";
         public const string TransferComplete = "Transfer Complete!";
-        public const string BillPaymentSuccess = "Bill Payment Successful";
+        public const string BillPaymentSuccess = "Bill Payment Complete";
         public const string AmountError = "The amount cannot be empty.";
         public const string AccountMismatch = "The account numbers do not match.";
         public const string AccountError = "Account number is required.";
@@ -77,5 +78,6 @@ namespace ParaBankPractice
 
         public const string TwoK = "2000";
         public const string RequestApproved = "Congratulations, your loan has been approved.";
+        public const string ValidAccountNo = "1154";
     }
 }
