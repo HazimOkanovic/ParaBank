@@ -14,7 +14,6 @@ namespace ParaBankPractice.Pages
         private readonly By AccountNumberField = By.XPath("//tr//td//input[@name='payee.accountNumber']");
         private readonly By VerifyAccountField = By.XPath("//tr//td//input[@name='verifyAccount']");
         private readonly By AmountField = By.XPath("//tr//td//input[@name='amount']");
-        private readonly By FromAccountDropdown = By.XPath("//tr//td//select[@name='fromAccountId']");
         private readonly By NameError = By.XPath("//td//span[@ng-show = '!validationModel.name']");
         private readonly By AddressError = By.XPath("//td//span[@ng-show = '!validationModel.address']");
         private readonly By CityError = By.XPath("//td//span[@ng-show = '!validationModel.city']");
@@ -148,7 +147,7 @@ namespace ParaBankPractice.Pages
 
         public BillPaymentPage ClearVerifyPassword()
         {
-            WaitElementVisibleAndGet(VerifyAccountField).Clear();
+            ClearInput(VerifyAccountField);
             return this;
         }
 

@@ -75,43 +75,43 @@ namespace ParaBankPractice.Pages
         public UpdateInfoPage ClearFirstName()
         {
             ThreadSleepHelper.Sleep(200);
-            WaitElementVisibleAndGet(FirstNameInput).Clear();
+            ClearInput(FirstNameInput);
             return this;
         }
         
         public UpdateInfoPage ClearLastName()
         {
-            WaitElementVisibleAndGet(LastNameInput).Clear();
+            ClearInput(LastNameInput);
             return this;
         }
         
         public UpdateInfoPage ClearAddress()
         {
-            WaitElementVisibleAndGet(AddressInput).Clear();
+            ClearInput(AddressInput);
             return this;
         }
         
         public UpdateInfoPage ClearCity()
         {
-            WaitElementVisibleAndGet(CityInput).Clear();
+            ClearInput(CityInput);
             return this;
         }
         
         public UpdateInfoPage ClearState()
         {
-            WaitElementVisibleAndGet(StateInput).Clear();
+            ClearInput(StateInput);
             return this;
         }
         
         public UpdateInfoPage ClearZipCOde()
         {
-            WaitElementVisibleAndGet(ZipCodeInput).Clear();
+            ClearInput(ZipCodeInput);
             return this;
         }
         
         public UpdateInfoPage ClearPhoneNumber()
         {
-            WaitElementVisibleAndGet(PhoneNumberInput).Clear();
+            ClearInput(PhoneNumberInput);
             return this;
         }
 

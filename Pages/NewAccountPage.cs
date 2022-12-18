@@ -11,6 +11,7 @@ namespace ParaBankPractice.Pages
         private readonly By ExistingAccount = By.XPath("(//form//select//option)[2]");
         private readonly By CreateAccountButton = By.XPath("//div//input[@type='submit']");
         private readonly By SuccessMessage = By.XPath("//div//p[contains(text(), 'Congratulations')]");
+        
         public NewAccountPage(IWebDriver driver, Enums.Enums.WebBrowser browser) : base(driver, browser)
         {
         }
