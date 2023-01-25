@@ -1,4 +1,4 @@
-# ParaBank
+# ParaBank Automation Testing
 
 This is one of my side projects that I did for practising automation testing with C#, Selenium, and NUnit. 
 
