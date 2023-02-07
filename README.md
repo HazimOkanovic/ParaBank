@@ -1,8 +1,8 @@
 # ParaBank Automation Testing
 
-This is one of my side projects that I did for practising automation testing with C#, Selenium, and NUnit. 
+This is one of my side projects that I did for practicing automation testing with C#, Selenium, and NUnit. 
 
-There are 103 tests in total. They are divided into tests for each functionality. Apart from tests for functionlities, there are also end2end tests for the whole application.
+There are 103 tests in total. They are divided into tests for each functionality. Apart from tests for functionalities, there are also end2end tests for the whole application.
 
 All necessary packages are from Nuget and they are:
   
