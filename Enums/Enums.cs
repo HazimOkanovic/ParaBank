@@ -6,8 +6,7 @@ namespace ParaBankPractice.Enums
         {
             Chrome,
             Edge,
-            Firefox,
-            Safari
+            Firefox
         }
     }
 }

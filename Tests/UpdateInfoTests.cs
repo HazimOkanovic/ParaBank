@@ -28,8 +28,7 @@ namespace ParaBankPractice.Tests
         [Test, Order(1)]
         public void GoToRegisterTest()
         {
-            logInPage
-                .ClickRegisterButton();
+            logInPage.ClickRegisterButton();
             
             Assert.That(registerPage.CheckSignUpTitle(), Is.EqualTo(Constants.SignUpTitle));
         }
@@ -57,8 +56,7 @@ namespace ParaBankPractice.Tests
         [Test, Order(3)]
         public void GoToUpdateInfoTest()
         {
-            homePage
-                .ClickUpdateInfoButton();
+            homePage.ClickUpdateInfoButton();
             
             Assert.That(updateInfoPage.GetTitle(), Is.EqualTo(Constants.UpdateProfile));
         }
@@ -86,8 +84,7 @@ namespace ParaBankPractice.Tests
         [Test, Order(5)]
         public void EnterOneFieldAndGetErrorsTest()
         {
-            updateInfoPage
-                .EnterFirstName(Constants.FirstName);
+            updateInfoPage.EnterFirstName(Constants.FirstName);
             
             Assert.That(updateInfoPage.GetLastNameError(), Is.EqualTo(Constants.LastNameError));
             Assert.That(updateInfoPage.GetAddressError(), Is.EqualTo(Constants.AddressError));
@@ -99,8 +96,7 @@ namespace ParaBankPractice.Tests
         [Test, Order(6)]
         public void EnterTwoFieldsAndGetErrorsTest()
         {
-            updateInfoPage
-                .EnterLastName(Constants.LastName);
+            updateInfoPage.EnterLastName(Constants.LastName);
             
             Assert.That(updateInfoPage.GetAddressError(), Is.EqualTo(Constants.AddressError));
             Assert.That(updateInfoPage.GetCityError(), Is.EqualTo(Constants.CityError));
@@ -111,8 +107,7 @@ namespace ParaBankPractice.Tests
         [Test, Order(7)]
         public void EnterThreeFieldsAndGetErrorsTest()
         {
-            updateInfoPage
-                .EnterAddress(Constants.Address);
+            updateInfoPage.EnterAddress(Constants.Address);
             
             Assert.That(updateInfoPage.GetCityError(), Is.EqualTo(Constants.CityError));
             Assert.That(updateInfoPage.GetStateError(), Is.EqualTo(Constants.StateError));
@@ -122,8 +117,7 @@ namespace ParaBankPractice.Tests
         [Test, Order(8)]
         public void EnterFourFieldsAndGetErrorsTest()
         {
-            updateInfoPage
-                .EnterCity(Constants.City);
+            updateInfoPage.EnterCity(Constants.City);
             
             Assert.That(updateInfoPage.GetStateError(), Is.EqualTo(Constants.StateError));
             Assert.That(updateInfoPage.GetZipCodeError(), Is.EqualTo(Constants.ZipCodeError));
@@ -132,8 +126,7 @@ namespace ParaBankPractice.Tests
         [Test, Order(9)]
         public void EnterFiveFieldsAndGetErrorsTest()
         {
-            updateInfoPage
-                .EnterState(Constants.State);
+            updateInfoPage.EnterState(Constants.State);
             
             Assert.That(updateInfoPage.GetZipCodeError(), Is.EqualTo(Constants.ZipCodeError));
         }

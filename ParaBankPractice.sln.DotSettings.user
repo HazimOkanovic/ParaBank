@@ -9,5 +9,6 @@
       &lt;Namespace&gt;ParaBankPractice.Tests&lt;/Namespace&gt;&#xD;
     &lt;/And&gt;&#xD;
     &lt;ProjectFile&gt;4805DDAE-19D3-4C5D-B672-B35B7E4B9747/d:Tests/f:End2EndTests.cs&lt;/ProjectFile&gt;&#xD;
+    &lt;ProjectFile&gt;4805DDAE-19D3-4C5D-B672-B35B7E4B9747/d:Tests/f:AccountOverviewTests.cs&lt;/ProjectFile&gt;&#xD;
   &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

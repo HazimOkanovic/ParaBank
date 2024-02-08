@@ -26,8 +26,7 @@ namespace ParaBankPractice.Tests
         [Test, Order(1)]
         public void GoToRegisterPageTest()
         {
-            logInPage
-                .ClickRegisterButton();
+            logInPage.ClickRegisterButton();
             
             Assert.That(registerPage.CheckSignUpTitle(), Is.EqualTo(Constants.SignUpTitle));
         }
@@ -55,8 +54,7 @@ namespace ParaBankPractice.Tests
         [Test, Order(3)]
         public void LogOutTest()
         {
-            homePage
-                .ClickLogOutButton();
+            homePage.ClickLogOutButton();
             
             Assert.That(logInPage.GetMessageForLogin(), Is.EqualTo(Constants.LogOutMessage));
         }

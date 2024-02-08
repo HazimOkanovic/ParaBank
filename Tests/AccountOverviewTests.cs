@@ -30,8 +30,7 @@ namespace ParaBankPractice.Tests
         [Test, Order(1)]
         public void GoToRegisterTest()
         {
-            logInPage
-                .ClickRegisterButton();
+            logInPage.ClickRegisterButton();
             
             Assert.That(registerPage.CheckSignUpTitle(), Is.EqualTo(Constants.SignUpTitle));
         }
@@ -59,8 +58,7 @@ namespace ParaBankPractice.Tests
         [Test, Order(3)]
         public void GoToAccountOverviewAndCheckAmountTest()
         {
-            homePage
-                .ClickAccountOverviewButton();
+            homePage.ClickAccountOverviewButton();
             
             Assert.That(accountOverviewPage.GetTitle(), Is.EqualTo(Constants.AccountsOverview));
             Assert.That(accountOverviewPage.GetFirstAccountAmount(), Is.EqualTo(Constants.FourHundredDollars));
@@ -70,8 +68,7 @@ namespace ParaBankPractice.Tests
         [Test, Order(4)]
         public void GoToNewAccountTest()
         {
-            homePage
-                .ClickNewAccountButton();
+            homePage.ClickNewAccountButton();
             
             Assert.That(newAccountPage.GetTitle(), Is.EqualTo(Constants.NewAccountMessage));
         }
@@ -81,8 +78,7 @@ namespace ParaBankPractice.Tests
         {
             ThreadSleepHelper.Sleep(250);
             
-            newAccountPage
-                .ClickOpenNewAccountButton();
+            newAccountPage.ClickOpenNewAccountButton();
             
             Assert.That(newAccountPage.GetSuccessMessage(), Is.EqualTo(Constants.BankAccountCreatedMessage));
         }
@@ -90,8 +86,7 @@ namespace ParaBankPractice.Tests
         [Test, Order(6)]
         public void CheckAmountTest()
         {
-            homePage
-                .ClickAccountOverviewButton();
+            homePage.ClickAccountOverviewButton();
             
             Assert.That(accountOverviewPage.GetTitle(), Is.EqualTo(Constants.AccountsOverview));
             Assert.That(accountOverviewPage.GetFirstAccountAmount(), Is.EqualTo(Constants.ThreeHundredDollars));

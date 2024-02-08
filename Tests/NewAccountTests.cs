@@ -28,8 +28,7 @@ namespace ParaBankPractice.Tests
         [Test, Order(1)]
         public void GoToRegisterTest()
         {
-            logInPage
-                .ClickRegisterButton();
+            logInPage.ClickRegisterButton();
             
             Assert.That(registerPage.CheckSignUpTitle(), Is.EqualTo(Constants.SignUpTitle));
         }
@@ -57,8 +56,7 @@ namespace ParaBankPractice.Tests
         [Test, Order(3)]
         public void GoToNewAccountTest()
         {
-            homePage
-                .ClickNewAccountButton();
+            homePage.ClickNewAccountButton();
             
             Assert.That(newAccountPage.GetTitle(), Is.EqualTo(Constants.NewAccountMessage));
         }
@@ -68,8 +66,7 @@ namespace ParaBankPractice.Tests
         {
             ThreadSleepHelper.Sleep(250);
             
-            newAccountPage
-                .ClickOpenNewAccountButton();
+            newAccountPage.ClickOpenNewAccountButton();
             
             Assert.That(newAccountPage.GetSuccessMessage(), Is.EqualTo(Constants.BankAccountCreatedMessage));
         }
@@ -77,8 +74,7 @@ namespace ParaBankPractice.Tests
         [Test, Order(5)]
         public void GoToNewAccountAgainTest()
         {
-            homePage
-                .ClickNewAccountButton();
+            homePage.ClickNewAccountButton();
             
             Assert.That(newAccountPage.GetTitle(), Is.EqualTo(Constants.NewAccountMessage));
         }

@@ -33,12 +33,6 @@ namespace ParaBankPractice.Pages
             return WaitElementVisibleAndGet(Title).Text;
         }
 
-        public FindTransactionsPage SelectSecondAccount()
-        {
-            SelectFromDropdown(SelectAccountDropDown, SelectSecondAccountFromDropdown);
-            return this;
-        }
-
         public FindTransactionsPage EnterTransactionId(string transactionId)
         {
             WaitElementVisibleAndGet(TransactionIdInput).SendKeys(transactionId);

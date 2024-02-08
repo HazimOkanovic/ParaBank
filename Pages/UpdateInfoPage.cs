@@ -66,12 +66,6 @@ namespace ParaBankPractice.Pages
             return this;
         }
         
-        public UpdateInfoPage EnterPhoneNumber(string phoneNumber)
-        {
-            WaitElementVisibleAndGet(PhoneNumberInput).SendKeys(phoneNumber);
-            return this;
-        }
-        
         public UpdateInfoPage ClearFirstName()
         {
             ThreadSleepHelper.Sleep(200);
