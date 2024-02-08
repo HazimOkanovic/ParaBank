@@ -43,12 +43,7 @@ namespace ParaBankPractice.Pages
             WaitElementExistsAndGet(logInButton).Click();
             return new HomePage(driver, webBrowser);
         }
-
-        public LogInPage ClickForgotLogInInfo()
-        {
-            WaitElementExistsAndGet(forgotInfoButton).Click();
-            return this;
-        }
+        
         public RegisterPage ClickRegisterButton()
         {
             WaitElementExistsAndGet(registerButton).Click();
