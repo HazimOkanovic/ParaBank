@@ -26,8 +26,7 @@ namespace ParaBankPractice.Tests
         [Test, Order(1)]
         public void GoToRegisterPageTest()
         {
-            logInPage
-                .ClickRegisterButton();
+            logInPage.ClickRegisterButton();
             
             Assert.That(registerPage.CheckSignUpTitle(), Is.EqualTo(Constants.SignUpTitle));
         }
@@ -35,8 +34,7 @@ namespace ParaBankPractice.Tests
         [Test, Order(2)]
         public void AllRequiredFieldsEmptyTest()
         {
-            registerPage
-                .ClickRegisterButton();
+            registerPage.ClickRegisterButton();
             
             Assert.That(registerPage.GetFirstNameError(), Is.EqualTo(Constants.FirstNameError));
             Assert.That(registerPage.GetLastNameError(), Is.EqualTo(Constants.LastNameError));

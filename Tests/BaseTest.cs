@@ -8,11 +8,9 @@ namespace ParaBankPractice.Tests
     public class BaseTest
     {
         protected IWebDriver driver;
-        protected Enums.Enums.WebBrowser webBrowser;
 
         protected BaseTest(Enums.Enums.WebBrowser webBrowser)
         {
-            this.webBrowser = webBrowser;
             driver = DriverHelper.GetDriver(webBrowser);
         }
 

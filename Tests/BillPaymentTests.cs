@@ -28,8 +28,7 @@ namespace ParaBankPractice.Tests
         [Test, Order(1)]
         public void GoToRegisterTest()
         {
-            logInPage
-                .ClickRegisterButton();
+            logInPage.ClickRegisterButton();
             
             Assert.That(registerPage.CheckSignUpTitle(), Is.EqualTo(Constants.SignUpTitle));
         }
@@ -57,8 +56,7 @@ namespace ParaBankPractice.Tests
         [Test, Order(3)]
         public void GoToBillPaymentTest()
         {
-            homePage
-                .ClickBillPayButton();
+            homePage.ClickBillPayButton();
             
             Assert.That(billPaymentPage.GetTitle(), Is.EqualTo(Constants.BillPaymentService));
         }
@@ -66,8 +64,7 @@ namespace ParaBankPractice.Tests
         [Test, Order(4)]
         public void AllFieldsEmptyTest()
         {
-            billPaymentPage
-                .ClickSubmitButton();
+            billPaymentPage.ClickSubmitButton();
             
             Assert.That(billPaymentPage.GetNameError(), Is.EqualTo(Constants.PayeeNameError));
             Assert.That(billPaymentPage.GetAddressError(), Is.EqualTo(Constants.AddressError));
