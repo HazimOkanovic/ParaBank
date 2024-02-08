@@ -11,8 +11,6 @@ namespace ParaBankPractice.Pages
 {
     public class BasePage : BaseComponent
     {
-        private readonly By loader = By.XPath(""); //TODO: add selector for loader
-
         protected BasePage(IWebDriver driver, Enums.Enums.WebBrowser webBrowser) : base(driver, webBrowser)
         {
         }
@@ -61,13 +59,6 @@ namespace ParaBankPractice.Pages
             }
         }
 
-        protected void WaitLoaderNotVisible(int timeoutInSeconds = Constants.TimeoutInSeconds)
-        {
-            // var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeoutInSeconds));
-            // wait.Until(ExpectedConditions.InvisibilityOfElementLocated(loader));
-            throw new NotImplementedException();
-        }
-
         #endregion
 
         #region Methods for getting an element after element meets a condition
@@ -99,46 +90,9 @@ namespace ParaBankPractice.Pages
             WaitElementExists(by, timeoutInSeconds);
         }
 
-         protected void CheckListOfElementsExist(List<By> elements, int timeoutInSeconds = Constants.TimeoutInSeconds)
-         {
-            //Assert.Multiple(() =>
-           // {
-                 foreach (By el in elements)
-                 {
-                     CheckElementExists(el, timeoutInSeconds);
-                 }
-            //});
-        }
-
-        #endregion
-
-        #region Methods to check if element meets a condition
-
-        protected bool ElementExists(By by, int timeoutInSeconds = Constants.TimeoutInSeconds)
-        {
-            try
-            {
-                var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeoutInSeconds));
-                wait.Until(ExpectedConditions.ElementExists(by));
-                return true;
-            }
-            catch (WebDriverTimeoutException)
-            {
-                return false;
-            }
-        }
-
         #endregion
 
         #region Helper methods to execute some actions
-
-        public string PrepareEmail(string email)
-        {
-            Random random = new Random();
-            int randomNum = random.Next(10000000, 99999999);
-            string _email = email.Split('@')[0] + "+" + randomNum.ToString() + "@" + email.Split('@')[1];
-            return _email;
-        }
 
         public void GoToUrl(string url)
         {
@@ -146,32 +100,10 @@ namespace ParaBankPractice.Pages
             driver.Manage().Window.Maximize();
         }
 
-        public void OpenNewTabAndGoToUrl(string url)
-        {
-            driver.SwitchTo().NewWindow(WindowType.Tab);
-            driver.Navigate().GoToUrl(url);
-        }
-
-        public void ClickOnText(string text)
-        {
-            WaitElementClickableAndGet(By.XPath("//*[contains(text(), '" + text + "')]"), 10).Click();
-        }
-
         public void SelectFromDropdown(By dropdown, By selectOption, int timeoutInSeconds = 20)
         {
-            // TODO: check if this is needed on safari with Selenium 4.0 if yes, uncomment this when browserName is fixed
-            // if (browserName == "safari")
-            // {
-            //     WaitElementExists(dropdown, timeoutInSeconds);
-            //     ClickJS(dropdown);
-            //     WaitElementExists(selectOption, timeoutInSeconds);
-            //     ClickJS(selectOption);
-            // }
-            // else
-            // {
             WaitElementExistsAndGet(dropdown, timeoutInSeconds).Click();
             WaitElementExistsAndGet(selectOption, timeoutInSeconds).Click();
-            // }
         }
 
         public void ClearInput(By element)
@@ -179,25 +111,9 @@ namespace ParaBankPractice.Pages
             WaitElementExistsAndGet(element, 60).Clear();
         }
 
-        public void ClickJS(By path)
-        {
-            var element = driver.FindElement(path);
-            ((IJavaScriptExecutor) driver).ExecuteScript("arguments[0].click();", element);
-        }
-
         public void SendKeys(By element, string text)
         {
             WaitElementClickableAndGet(element, 60).SendKeys(text);
-        }
-
-        public static string FirstCharToUpper(string input)
-        {
-            switch (input)
-            {
-                case null: throw new ArgumentNullException(nameof(input));
-                case "": throw new ArgumentException($"{nameof(input)} cannot be empty", nameof(input));
-                default: return input.First().ToString().ToUpper() + input.Substring(1);
-            }
         }
 
         #endregion
